@@ -1,6 +1,6 @@
 import dayjs from "dayjs";
 import React, { useState } from "react";
-import { useParams } from "react-router";
+import { useNavigate, useParams } from "react-router";
 
 const EventRegistration = () => {
   const [formData, setFormData] = useState({});
@@ -9,27 +9,19 @@ const EventRegistration = () => {
   const [event, setEvent] = useState({});
   const [loading, setLoading] = useState(true);
   const token = localStorage.getItem("authToken");
-  const [formFieldData, setFormFieldData] = useState({});
+  const navigate = useNavigate();
 
   const { projectId, attendeeId } = useParams();
-
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData((prev) => ({
-      ...prev,
-      [name]: value,
-    }));
-  };
 
   const handleFormFieldData = (e, type) => {
     if (type === "toggle") {
       const { name, checked } = e.target;
-      setFormFieldData((prev) => {
+      setFormData((prev) => {
         return { ...prev, [name]: checked };
       });
     } else {
       const { name, value } = e.target;
-      setFormFieldData((prev) => {
+      setFormData((prev) => {
         return { ...prev, [name]: value };
       });
     }
@@ -63,8 +55,35 @@ const EventRegistration = () => {
     }
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
+    try {
+      const response = await fetch(
+        `${
+          import.meta.env.VITE_BASE_URL
+        }/attendee/${projectId}/updateAttendeeByRegistration/${attendeeId}`,
+        {
+          method: "PUT",
+          headers: {
+            "Content-Type": "application/json",
+            // Authorization: `Bearer ${token}`,
+          },
+          body: JSON.stringify(formData),
+        }
+      );
+      if (!response.ok) {
+        alert("error");
+        return;
+      }
+      const res = await response.json();
+      if (res.success) {
+        alert("Registration successfull, Please close this page");
+        setFormData([]);
+        setCategoryFormFields([]);
+        setAttendee({});
+        navigate("/ThankYouScreen");
+      }
+    } catch (error) {}
     // Handle form submission logic here
     console.log("Form submitted:", formData);
   };
@@ -107,7 +126,7 @@ const EventRegistration = () => {
           method: "GET",
           headers: {
             "Content-Type": "application/json",
-            Authorization: `Bearer ${token}`,
+            // Authorization: `Bearer ${token}`,
           },
         }
       );
@@ -118,6 +137,7 @@ const EventRegistration = () => {
       const res = await response.json();
       if (res.success) {
         setAttendee(res.data);
+        setFormData(res?.data?.form_fields_data || {});
         fetchCategoryFormFieldsData(res?.data?.category_id);
       }
     } catch (error) {
@@ -151,9 +171,9 @@ const EventRegistration = () => {
               id="name"
               name="name"
               value={attendee.first_name}
-              onChange={handleChange}
-              className="mt-2 w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="mt-2 w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 disabled:bg-gray-400"
               placeholder="Enter your full name"
+              disabled
               required
             />
           </div>
@@ -171,7 +191,7 @@ const EventRegistration = () => {
                     type={formField.type}
                     id={formField.name}
                     name={formField.name}
-                    value={attendee.form_fields_data[formField.name]}
+                    value={formData[formField.name]}
                     required={formField.attendee_required}
                     disabled={!formField.attendee_editable}
                     onChange={(e) => handleFormFieldData(e, formField.type)}
@@ -182,7 +202,7 @@ const EventRegistration = () => {
                     type={formField.type}
                     id={formField.name}
                     name={formField.name}
-                    value={attendee.form_fields_data[formField.name]}
+                    value={formData[formField.name]}
                     required={formField.attendee_required}
                     disabled={!formField.attendee_editable}
                     onChange={(e) => handleFormFieldData(e, formField.type)}

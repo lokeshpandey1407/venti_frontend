@@ -850,7 +850,6 @@ const AddApp = () => {
         const updateResponse = await fetch(
           `http://localhost:3000/api/v1/experienceApp/${projectId}/${experienceId}/addExperienceApp`,
           {
-            // const updateResponse = await fetch(`http://localhost:5000/db/value/updateUserFieldValues/cricket/${userDetailsFirebase.uid}/cricketer3`, {
             method: "POST",
             headers: {
               "Content-Type": "application/json",
@@ -875,7 +874,6 @@ const AddApp = () => {
         const updateResponse = await fetch(
           `http://localhost:3000/api/v1/experienceApp/${projectId}/${experienceId}/updateExperienceApp/${appId}`,
           {
-            // const updateResponse = await fetch(`http://localhost:5000/db/value/updateUserFieldValues/cricket/${userDetailsFirebase.uid}/cricketer3`, {
             method: "PUT",
             headers: {
               "Content-Type": "application/json",

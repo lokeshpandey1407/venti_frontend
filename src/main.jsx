@@ -17,6 +17,7 @@ import ManageFormFields from "./components/project/formFields/ManageFormField.js
 import ManageCategoryFormFieldPage from "./components/project/category/ManageCategoryFormFieldPage.jsx";
 import ManageAttendeePage from "./components/project/attendee/ManageAttendeePage.jsx";
 import EventRegistration from "./components/project/attendee/UpdateAttendee/EventRegistration.jsx";
+import ThankYouScreen from "./components/project/attendee/UpdateAttendee/ThankyouPage.jsx";
 
 createRoot(document.getElementById("root")).render(
   <BrowserRouter>
@@ -60,6 +61,10 @@ createRoot(document.getElementById("root")).render(
       <Route
         path="/register-on-event/:projectId/:attendeeId"
         element={<EventRegistration />}
+      />
+      <Route
+        path="/ThankYouScreen"
+        element={<ThankYouScreen />}
       />
 
       <Route path="/updateOrganization/:id" element={<CreateOrganization />} />
