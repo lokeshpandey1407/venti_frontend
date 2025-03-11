@@ -18,6 +18,7 @@ import ManageCategoryFormFieldPage from "./components/project/category/ManageCat
 import ManageAttendeePage from "./components/project/attendee/ManageAttendeePage.jsx";
 import EventRegistration from "./components/project/attendee/UpdateAttendee/EventRegistration.jsx";
 import ThankYouScreen from "./components/project/attendee/UpdateAttendee/ThankyouPage.jsx";
+import ProtectedRoute from "./common/ProtectedRoute.jsx";
 
 createRoot(document.getElementById("root")).render(
   <BrowserRouter>
@@ -25,49 +26,126 @@ createRoot(document.getElementById("root")).render(
     <Routes>
       <Route path="/login" element={<Login />} />
       <Route path="/signup" element={<Signup />} />
-      <Route path="/" element={<Home />} />
+      <Route
+        path="/"
+        element={
+          <ProtectedRoute>
+            <Home />
+          </ProtectedRoute>
+        }
+      />
       <Route path="/apps/:projectId">
-        <Route index element={<App />} />
+        <Route
+          index
+          element={
+            <ProtectedRoute>
+              <App />
+            </ProtectedRoute>
+          }
+        />
         <Route
           path="/apps/:projectId/:experienceId/addApp"
-          element={<AddApp />}
+          element={
+            <ProtectedRoute>
+              <AddApp />
+            </ProtectedRoute>
+          }
         />
         <Route
           path="/apps/:projectId/:experienceId/updateApp/:appId"
-          element={<AddApp />}
+          element={
+            <ProtectedRoute>
+              <AddApp />
+            </ProtectedRoute>
+          }
         />
       </Route>
-      <Route path="/organization/:id" element={<OrganizationPage />} />
-      <Route path="/project/:id" element={<ProjectPage />} />
-      <Route path="/createProject" element={<CreateProject />} />
-      <Route path="/updateProject/:id" element={<CreateProject />} />
-      <Route path="/addOrganization" element={<CreateOrganization />} />
+      <Route
+        path="/organization/:id"
+        element={
+          <ProtectedRoute>
+            <OrganizationPage />
+          </ProtectedRoute>
+        }
+      />
+      <Route
+        path="/project/:id"
+        element={
+          <ProtectedRoute>
+            <ProjectPage />
+          </ProtectedRoute>
+        }
+      />
+      <Route
+        path="/createProject"
+        element={
+          <ProtectedRoute>
+            <CreateProject />
+          </ProtectedRoute>
+        }
+      />
+      <Route
+        path="/updateProject/:id"
+        element={
+          <ProtectedRoute>
+            <CreateProject />
+          </ProtectedRoute>
+        }
+      />
+      <Route
+        path="/addOrganization"
+        element={
+          <ProtectedRoute>
+            <CreateOrganization />
+          </ProtectedRoute>
+        }
+      />
       <Route
         path="/manageCategory/:projectId"
-        element={<ManageCategoryPage />}
+        element={
+          <ProtectedRoute>
+            <ManageCategoryPage />
+          </ProtectedRoute>
+        }
       />
       <Route
         path="/manageAttendee/:projectId"
-        element={<ManageAttendeePage />}
+        element={
+          <ProtectedRoute>
+            <ManageAttendeePage />
+          </ProtectedRoute>
+        }
       />
       <Route
         path="/manageFormFields/:projectId"
-        element={<ManageFormFields />}
+        element={
+          <ProtectedRoute>
+            <ManageFormFields />
+          </ProtectedRoute>
+        }
       />
       <Route
         path="/manageCategoryFields/:projectId"
-        element={<ManageCategoryFormFieldPage />}
+        element={
+          <ProtectedRoute>
+            <ManageCategoryFormFieldPage />
+          </ProtectedRoute>
+        }
       />
       <Route
         path="/register-on-event/:projectId/:attendeeId"
         element={<EventRegistration />}
       />
-      <Route
-        path="/ThankYouScreen"
-        element={<ThankYouScreen />}
-      />
+      <Route path="/ThankYouScreen" element={<ThankYouScreen />} />
 
-      <Route path="/updateOrganization/:id" element={<CreateOrganization />} />
+      <Route
+        path="/updateOrganization/:id"
+        element={
+          <ProtectedRoute>
+            <CreateOrganization />
+          </ProtectedRoute>
+        }
+      />
       <Route path="/demoTable" element={<Table />} />
     </Routes>
   </BrowserRouter>

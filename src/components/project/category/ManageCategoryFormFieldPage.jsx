@@ -394,10 +394,10 @@ const ManageCategoryFormFieldPage = () => {
           {!loadingFormFields && (
             <table className="table-auto w-full border border-gray-300 rounded">
               <thead className=" bg-blue-200">
-                {table.getHeaderGroups().map((headerGroup) => (
-                  <tr className="p-2 text-left">
-                    {headerGroup.headers.map((header) => (
-                      <th className="p-2">
+                {table.getHeaderGroups().map((headerGroup,index) => (
+                  <tr key={index} className="p-2 text-left">
+                    {headerGroup.headers.map((header,index) => (
+                      <th key={index} className="p-2">
                         {header.isPlaceholder
                           ? null
                           : flexRender(

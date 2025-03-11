@@ -114,9 +114,9 @@ const OrganizationPage = () => {
       </div>
       <h2 className="text-xl">Current Projects</h2>
       <div className="flex flex-row gap-2 flex-wrap mt-10">
-        {projects.map((project) => {
+        {projects.map((project, index) => {
           return (
-            <div>
+            <div key={index}>
               <button
                 className="min-h-10 min-w-10 p-3 bg-green-400 rounded-lg cursor-pointer"
                 onClick={() => {
