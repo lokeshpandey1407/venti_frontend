@@ -8,6 +8,8 @@ const AddApp = () => {
   const [completeData, setCompleteData] = useState({});
   const [originalData, setOriginalData] = useState({});
   const [newRowData, setNewRowData] = useState({});
+  const [editingRow, setEditingRow] = useState(null);
+  const [addingNewRow, setAddingNewRow] = useState(null);
   const [uploadedImages, setUploadedImages] = useState(new Set());
   const [updatedFields, setUpdatedFields] = useState({});
   const [experienceLoading, setExperienceLoading] = useState(true);
@@ -203,30 +205,6 @@ const AddApp = () => {
                     Max ({field.range[1] || 100})
                   </span>
                 </div>
-
-                {/* <label htmlFor={field.id} className="text-left pl-2 capitalize">{field.name}</label>
-                                <input
-                                    id={field.id}
-                                    placeholder={field.value}
-                                    type='range'
-                                    max={field.range[1] || 100}
-                                    min={field.range[0] || 0}
-                                    value={field.value}
-                                    step={1}
-                                    className="flex h-10 w-full rounded-lg outline-none bg-transparent border-sky-600 shadow-sm shadow-sky-700 focus-visible:ring-[3px] focus-visible:ring-sky-700 focus-visible:ring-offset-[2px]"
-                                    onChange={(e) => handleInputChange(field.id, e.target.value)}
-                                />
-                                <div className="flex justify-between">
-                                    <p className="pl-4 text-center text-sm font-medium">
-                                        {field.range[0] || 0}
-                                    </p>
-                                    <p className="pl-4 text-center text-sm font-medium">
-                                        {field.value} Value
-                                    </p>
-                                    <p className="pl-4 text-center text-sm font-medium">
-                                        {field.range[1] || 100}
-                                    </p>
-                                </div> */}
               </div>
             </div>
           </div>
@@ -720,6 +698,176 @@ const AddApp = () => {
     }
   };
 
+  const renderEditInput = (fieldId, rowIndex, subField) => {
+    switch (subField.type) {
+      case "Text":
+        return (
+          <input
+            value={subField.value}
+            onChange={(e) =>
+              handleListItemChange(
+                fieldId,
+                rowIndex,
+                subField.id,
+                e.target.value
+              )
+            }
+            className="flex h-10 w-[12rem] rounded-lg outline-none bg-transparent border-sky-600 shadow-sm shadow-sky-700 focus-visible:ring-[3px] focus-visible:ring-sky-700 focus-visible:ring-offset-[2px]"
+          />
+        );
+      case "Number":
+        return (
+          <input
+            value={subField.value}
+            type="number"
+            onChange={(e) =>
+              handleListItemChange(
+                fieldId,
+                rowIndex,
+                subField.id,
+                parseInt(e.target.value)
+              )
+            }
+            className="flex h-10 w-[12rem] rounded-lg outline-none bg-transparent border-sky-600 shadow-sm shadow-sky-700 focus-visible:ring-[3px] focus-visible:ring-sky-700 focus-visible:ring-offset-[2px]"
+          />
+        );
+
+      case "DateTime":
+        return (
+          <input
+            value={subField.value}
+            type="datetime-local"
+            onChange={(e) =>
+              handleListItemChange(
+                fieldId,
+                rowIndex,
+                subField.id,
+                e.target.value
+              )
+            }
+            className="flex h-10 w-[12rem] rounded-lg outline-none bg-transparent border-sky-600 shadow-sm shadow-sky-700 focus-visible:ring-[3px] focus-visible:ring-sky-700 focus-visible:ring-offset-[2px]"
+          />
+        );
+
+      case "NumberRange":
+        return (
+          <>
+            {/* <label htmlFor="ranger" className="text-left pl-2 capitalize">{subField.name}</label> */}
+            <div class="relative w-full">
+              <input
+                value={subField.value}
+                type="range"
+                max={(subField.range && subField.range[1]) || 100}
+                min={(subField.range && subField.range[0]) || 0}
+                step={1}
+                className="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer dark:bg-gray-700"
+                onChange={(e) =>
+                  handleListItemChange(
+                    fieldId,
+                    rowIndex,
+                    subField.id,
+                    parseInt(e.target.value)
+                  )
+                }
+              />
+              <span class="text-sm text-gray-500 dark:text-gray-400 absolute start-0 -bottom-6">
+                {(subField.range && subField.range[0]) || 0}
+              </span>
+              <span class="text-sm text-gray-500 dark:text-gray-400 absolute start-1/2 -translate-x-1/2 rtl:translate-x-1/2 -bottom-6">
+                {subField.value}{" "}
+              </span>
+              <span class="text-sm text-gray-500 dark:text-gray-400 absolute end-0 -bottom-6">
+                {(subField.range && subField.range[1]) || 100}
+              </span>
+            </div>
+            {/* <input
+                            value={subField.value}
+                            type="range"
+                            max={(subField.range && subField.range[1]) || 100}
+                            min={(subField.range && subField.range[0]) || 0}
+                            onChange={(e) => handleListItemChange(fieldId, rowIndex, subField.id, parseInt(e.target.value))}
+                            className="flex h-10 w-[12rem] rounded-lg outline-none bg-transparent border-sky-600 shadow-sm shadow-sky-700 focus-visible:ring-[3px] focus-visible:ring-sky-700 focus-visible:ring-offset-[2px]"
+                        /> */}
+          </>
+        );
+      case "Image":
+        return (
+          <div className="flex items-center gap-3">
+            <div className="w-fit h-full pl-1">
+              <div className="bg-white/10 rounded-full overflow-hidden w-[3.5rem] aspect-square flex justify-center items-center">
+                <img
+                  src={subField.value}
+                  alt="IMG"
+                  className="object-contain"
+                />
+              </div>
+            </div>
+            <div className="flex flex-col space-x-1.5">
+              <input
+                type="file"
+                onChange={(e) => {
+                  const file = e.target.files[0];
+                  if (file) {
+                    const reader = new FileReader();
+                    reader.onloadend = () => {
+                      handleListItemChange(
+                        fieldId,
+                        rowIndex,
+                        subField.id,
+                        reader.result
+                      );
+                    };
+                    reader.readAsDataURL(file);
+                  }
+                }}
+                className="flex file:text-text h-10 w-fit rounded-lg border border-sky-600 shadow-sm shadow-sky-700 px-3 py-2 text-sm file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
+              />
+            </div>
+          </div>
+        );
+      // Add more cases for other types as needed
+      default:
+        return subField.value;
+    }
+  };
+
+  
+  const handleListItemChange = (listFieldId, rowIndex, itemId, value) => {
+    setFormData((prevData) => ({
+      ...prevData,
+      fields: prevData.fields.map((field) => {
+        if (field.id === listFieldId) {
+          const newValue = [...field.value];
+          if (rowIndex === newValue.length) {
+            // This is a new row being added
+            const newRow = newValue[0].map((item) =>
+              item.id === itemId ? { ...item, value } : { ...item, value: "" }
+            );
+            newValue.push(newRow);
+          } else {
+            newValue[rowIndex] = newValue[rowIndex].map((item) =>
+              item.id === itemId ? { ...item, value } : item
+            );
+          }
+          return { ...field, value: newValue };
+        }
+        return field;
+      }),
+    }));
+
+    const updatedList = formData.fields.find(
+      (field) => field.id === listFieldId
+    );
+    setUpdatedFields((prev) => ({ ...prev, [listFieldId]: updatedList.value }));
+
+    // Track image uploads in lists
+    if (typeof value === "string" && value.startsWith("data:image")) {
+      setUploadedImages((prev) =>
+        new Set(prev).add(`${listFieldId}@${rowIndex}@${itemId}`)
+      );
+    }
+  };
+
   const handleSave = async () => {
     // Identify image fields that have changed
     const changedImageFields = formData.fields.filter(
@@ -754,7 +902,6 @@ const AddApp = () => {
       fieldId: field.fieldId || field.id,
       filename: `${field.fieldId || field.id}.jpg`, // You might want to use a more sophisticated naming strategy
     }));
-    console.log(imageData);
 
     // Prepare form data for image upload
     const formDataForUpload = new FormData();
@@ -860,7 +1007,6 @@ const AddApp = () => {
         );
 
         if (updateResponse.ok) {
-          console.log("App created successfully", updateResponse);
           // Refresh the form data
           navigate(`/apps/${projectId}`);
         } else {
@@ -912,6 +1058,32 @@ const AddApp = () => {
     }
   };
 
+  const handleAddNewRow = (fieldId, newRowData) => {
+    setFormData((prevData) => {
+      const updatedFields = prevData.fields.map((field) => {
+        if (field.id === fieldId) {
+          const newRow = field.value[0].map((item) => ({
+            ...item,
+            value: newRowData[item.id] || "",
+          }));
+          const updatedValue = [...field.value, newRow];
+          return { ...field, value: updatedValue };
+        }
+        return field;
+      });
+
+      const updatedData = { ...prevData, fields: updatedFields };
+
+      // Update the updatedFields state
+      setUpdatedFields((prev) => {
+        const updatedField = updatedData.fields.find((f) => f.id === fieldId);
+        return { ...prev, [fieldId]: updatedField.value };
+      });
+
+      return updatedData;
+    });
+  };
+
   useEffect(() => {
     if (experienceId) {
       fetchExperience();
@@ -926,7 +1098,7 @@ const AddApp = () => {
 
   return (
     <div className="flex justify-center items-center">
-      <form className=" w-full h-full p-2">
+      <form className=" w-4xl h-full p-2">
         <div className="grid items-center w-full gap-8 border-2 p-5 rounded-lg border-gradient-left shadow-inner shadow-border-gradient-right/80">
           <div className="flex flex-col w-full space-y-1.5 ">
             <label className="block text-sm font-medium text-gray-700">

@@ -45,7 +45,18 @@ const ManageCategoryFormFieldPage = () => {
 
       const res = await response.json();
       if (res.success) {
-        setFormFieldsData(res.data);
+        const dataMap = res.data.map((data) => {
+          return {
+            form_field_id: data.form_field_id,
+            category_id: data.category_id,
+            dashboard_required: data.dashboard_required,
+            attendee_visible: data.attendee_visible,
+            attendee_editable: data.attendee_editable,
+            attendee_required: data.attendee_required,
+            app_shared: data.app_shared,
+          };
+        });
+        setFormFieldsData((prev) => [...dataMap]);
       }
     } catch (error) {
       console.error("Fetch error:", error);
@@ -84,7 +95,7 @@ const ManageCategoryFormFieldPage = () => {
         attendee_required: false,
         app_shared: false,
       };
-
+      console.log("obj", newDataObject);
       setFormFieldsData((prevData) => [...prevData, newDataObject]);
     }
   };
