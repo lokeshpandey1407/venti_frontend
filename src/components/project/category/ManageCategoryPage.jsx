@@ -68,7 +68,7 @@ const ManageCategoryPage = () => {
       const response = await fetch(
         `${
           import.meta.env.VITE_BASE_URL
-        }/projectAttendeeCategory/${projectId}/${updateCategory}`,
+        }/project-attendee-category/${projectId}/${updateCategory}`,
         {
           method: "PUT",
           headers: {

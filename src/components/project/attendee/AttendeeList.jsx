@@ -75,7 +75,6 @@ const AttendeeList = () => {
           });
         });
         setTableFields(res.data);
-        console.log(res.data);
       }
     } catch (error) {
       console.log(error);
@@ -86,7 +85,9 @@ const AttendeeList = () => {
   const fetchCategories = async () => {
     try {
       const response = await fetch(
-        `${import.meta.env.VITE_BASE_URL}/project-attendee-category/${projectId}`,
+        `${
+          import.meta.env.VITE_BASE_URL
+        }/project-attendee-category/${projectId}`,
         {
           method: "GET",
           headers: {
@@ -124,6 +125,41 @@ const AttendeeList = () => {
   };
 
   const handleDelete = async (id) => {};
+
+  const generateAttendeeBadge = async (attendeeId) => {
+    try {
+      const response = await fetch(
+        `${
+          import.meta.env.VITE_BASE_URL
+        }/project-attendee-badge/${projectId}/generate-attendee-badge/${attendeeId}/staffId`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            // Authorization: `Bearer ${token}`,
+          },
+          body: JSON.stringify(),
+        }
+      );
+
+      if (!response.ok) {
+        alert("Some error occurred. Please try again");
+      }
+
+      const res = await response.json();
+      if (res.success) {
+        console.log(res.data);
+        alert(
+          `The badge has been generated successfully ${JSON.stringify(
+            res.data
+          )}`
+        );
+      }
+    } catch (error) {
+      console.log("Fetch error:", error);
+      alert(error?.message || "Some error occured. Please try again");
+    }
+  };
 
   const generateRegistrationLink = (attendeeId) => {
     const link = `http://localhost:5173/register-on-event/${projectId}/${attendeeId}`;
@@ -181,14 +217,14 @@ const AttendeeList = () => {
               <td className="border border-gray-200 p-2">
                 {attendee.is_active ? "Yes" : "No"}
               </td>
-              {tableFields.map((field) => {
+              {tableFields.map((field, index) => {
                 return (
-                  <td className="border border-gray-200 p-2">
+                  <td key={index} className="border border-gray-200 p-2">
                     {attendee.form_fields_data[field.name]}
                   </td>
                 );
               })}
-              <td className="border border-gray-200 p-2">
+              <td className="border border-gray-200 p-2 flex flex-row flex-wrap gap-1">
                 <button
                   onClick={() => handleEdit(attendee)}
                   className="bg-yellow-500 text-white p-1 rounded mr-1 cursor-pointer"
@@ -204,9 +240,16 @@ const AttendeeList = () => {
 
                 <button
                   onClick={() => generateRegistrationLink(attendee.id)}
-                  className="bg-blue-500 text-white p-1 rounded cursor-pointer"
+                  className="bg-blue-500 text-white p-1 rounded mr-1 cursor-pointer"
                 >
                   Send Invite
+                </button>
+
+                <button
+                  onClick={() => generateAttendeeBadge(attendee.id)}
+                  className="bg-green-500 text-white p-1 rounded cursor-pointer"
+                >
+                  Generate Badge
                 </button>
               </td>
             </tr>

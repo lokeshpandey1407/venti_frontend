@@ -29,7 +29,7 @@ const ManageCategoryFormFieldPage = () => {
       const response = await fetch(
         `${
           import.meta.env.VITE_BASE_URL
-        }/projectAttendeeCategory/${projectId}/get-form-fields-by-category/${categoryId}`,
+        }/project-attendee-category/${projectId}/get-form-fields-by-category/${categoryId}`,
         {
           method: "GET",
           headers: {
@@ -328,7 +328,7 @@ const ManageCategoryFormFieldPage = () => {
       const response = await fetch(
         `${
           import.meta.env.VITE_BASE_URL
-        }/projectAttendeeCategory/${projectId}/add-fields-to-category`,
+        }/project-attendee-category/${projectId}/add-fields-to-category`,
         {
           method: "POST",
           headers: {
