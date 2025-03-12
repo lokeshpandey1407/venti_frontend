@@ -8,7 +8,8 @@ const ThankYouScreen = () => {
           Thank You!
         </h1>
         <p className="text-xl text-gray-700 mb-6">
-          Your registration has been successfully submitted.
+          Your registration has been successfully submitted and Event pass has
+          been sent to you on your registered Email.
         </p>
         <p className="text-md text-gray-500 mb-4">
           We look forward to seeing you at the event!

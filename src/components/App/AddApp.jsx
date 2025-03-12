@@ -831,7 +831,6 @@ const AddApp = () => {
     }
   };
 
-  
   const handleListItemChange = (listFieldId, rowIndex, itemId, value) => {
     setFormData((prevData) => ({
       ...prevData,
@@ -1030,7 +1029,7 @@ const AddApp = () => {
         );
 
         if (updateResponse.ok) {
-          console.log("App updated successfully", updateResponse);
+          alert("App updated successfully");
           // Refresh the form data
           navigate(`/apps/${projectId}`);
         } else {
@@ -1050,7 +1049,7 @@ const AddApp = () => {
       );
       if (response.ok) {
         const res = response.json();
-        console.log("App deleted successfully");
+        alert("App deleted successfully");
         navigate(`/apps/${projectId}`);
       }
     } catch (error) {

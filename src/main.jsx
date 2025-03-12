@@ -19,6 +19,9 @@ import ManageAttendeePage from "./components/project/attendee/ManageAttendeePage
 import EventRegistration from "./components/project/attendee/UpdateAttendee/EventRegistration.jsx";
 import ThankYouScreen from "./components/project/attendee/UpdateAttendee/ThankyouPage.jsx";
 import ProtectedRoute from "./common/ProtectedRoute.jsx";
+import AddUpdatePermission from "./components/permission/AddUpdatePermission.jsx";
+import AddUpdaterole from "./components/role/AddUpdateRole.jsx";
+import ManageRolePermissions from "./components/role/ManageRole&Permissions.jsx";
 
 createRoot(document.getElementById("root")).render(
   <BrowserRouter>
@@ -26,6 +29,9 @@ createRoot(document.getElementById("root")).render(
     <Routes>
       <Route path="/login" element={<Login />} />
       <Route path="/signup" element={<Signup />} />
+      <Route path="/permission" element={<AddUpdatePermission />} />
+      <Route path="/role" element={<AddUpdaterole />} />
+      <Route path="/manageRolePermission" element={<ManageRolePermissions />} />
       <Route
         path="/"
         element={

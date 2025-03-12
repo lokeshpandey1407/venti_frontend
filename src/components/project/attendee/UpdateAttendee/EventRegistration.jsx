@@ -83,9 +83,10 @@ const EventRegistration = () => {
         setAttendee({});
         navigate("/ThankYouScreen");
       }
-    } catch (error) {}
+    } catch (error) {
+      console.log(error)
+    }
     // Handle form submission logic here
-    console.log("Form submitted:", formData);
   };
 
   const fetchEvent = async () => {

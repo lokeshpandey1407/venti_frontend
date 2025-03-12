@@ -65,22 +65,22 @@ const Navbar = () => {
                   Orgaization
                 </a>
                 <a
-                  href="#about"
+                  href="/role"
                   className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
                 >
-                  About
+                  Roles
                 </a>
                 <a
-                  href="#services"
+                  href="/permission "
                   className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
                 >
-                  Services
+                  Permissions
                 </a>
                 <a
-                  href="#contact"
+                  href="/manageRolePermission"
                   className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
                 >
-                  Contact
+                  Manage Role & Permissions
                 </a>
                 {token && (
                   <button

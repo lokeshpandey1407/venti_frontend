@@ -95,7 +95,7 @@ const ManageCategoryFormFieldPage = () => {
         attendee_required: false,
         app_shared: false,
       };
-      console.log("obj", newDataObject);
+ 
       setFormFieldsData((prevData) => [...prevData, newDataObject]);
     }
   };
@@ -323,8 +323,6 @@ const ManageCategoryFormFieldPage = () => {
       return;
     }
 
-    // Collect form data and handle submission logic here
-    console.log("Form Submitted:", formFieldsData);
 
     try {
       const response = await fetch(
