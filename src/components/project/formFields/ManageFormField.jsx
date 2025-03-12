@@ -64,7 +64,7 @@ const ManageFormFields = () => {
 
     try {
       const response = await fetch(
-        `${import.meta.env.VITE_BASE_URL}/projectFormField/${projectId}`,
+        `${import.meta.env.VITE_BASE_URL}/project-form-field/${projectId}`,
         {
           method: "POST",
           headers: {
@@ -113,7 +113,7 @@ const ManageFormFields = () => {
     setLoading(true);
     try {
       const response = await fetch(
-        `${import.meta.env.VITE_BASE_URL}/projectFormField/${projectId}`,
+        `${import.meta.env.VITE_BASE_URL}/project-form-field/${projectId}`,
         {
           method: "GET",
           headers: {
@@ -147,7 +147,7 @@ const ManageFormFields = () => {
       const response = await fetch(
         `${
           import.meta.env.VITE_BASE_URL
-        }/projectFormField/${projectId}/${fieldId}`,
+        }/project-form-field/${projectId}/${fieldId}`,
         {
           method: "DELETE",
           headers: {
@@ -186,7 +186,7 @@ const ManageFormFields = () => {
       const response = await fetch(
         `${
           import.meta.env.VITE_BASE_URL
-        }/projectFormField/${projectId}/${updateField}`,
+        }/project-form-field/${projectId}/${updateField}`,
         {
           method: "PUT",
           headers: {
@@ -242,7 +242,7 @@ const ManageFormFields = () => {
       const response = await fetch(
         `${
           import.meta.env.VITE_BASE_URL
-        }/projectFormField/${projectId}/${fieldId}`,
+        }/project-form-field/${projectId}/${fieldId}`,
         {
           method: "GET",
           headers: {

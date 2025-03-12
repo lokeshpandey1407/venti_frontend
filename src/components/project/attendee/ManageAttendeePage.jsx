@@ -59,7 +59,7 @@ const ManageAttendeePage = () => {
       const response = await fetch(
         `${
           import.meta.env.VITE_BASE_URL
-        }/projectAttendeeCategory/${projectId}/getFormFieldsByCategory/${categoryId}`,
+        }/project-attendee-category/${projectId}/get-form-fields-by-category/${categoryId}`,
         {
           method: "GET",
           headers: {
@@ -98,7 +98,7 @@ const ManageAttendeePage = () => {
   const fetchCategories = async () => {
     try {
       const response = await fetch(
-        `${import.meta.env.VITE_BASE_URL}/projectAttendeeCategory/${projectId}`,
+        `${import.meta.env.VITE_BASE_URL}/project-attendee-category/${projectId}`,
         {
           method: "GET",
           headers: {
@@ -145,7 +145,7 @@ const ManageAttendeePage = () => {
       const data = { ...formData, form_fields_data: formFieldData };
 
       const response = await fetch(
-        `${import.meta.env.VITE_BASE_URL}/attendee/${projectId}/createAttendee`,
+        `${import.meta.env.VITE_BASE_URL}/attendee/${projectId}/create-attendee`,
         {
           method: "POST",
           headers: {

@@ -19,7 +19,7 @@ const AttendeeList = () => {
   const fetchAttendees = async (filter) => {
     try {
       const response = await fetch(
-        `${import.meta.env.VITE_BASE_URL}/attendee/${projectId}/getAttendees`,
+        `${import.meta.env.VITE_BASE_URL}/attendee/${projectId}/get-attendees`,
         {
           method: "GET",
           headers: {
@@ -54,7 +54,7 @@ const AttendeeList = () => {
       const response = await fetch(
         `${
           import.meta.env.VITE_BASE_URL
-        }/projectAttendeeCategory/${projectId}/getFormFieldsByCategory/${categoryId}`,
+        }/project-attendee-category/${projectId}/get-form-fields-by-category/${categoryId}`,
         {
           method: "GET",
           headers: {
@@ -86,7 +86,7 @@ const AttendeeList = () => {
   const fetchCategories = async () => {
     try {
       const response = await fetch(
-        `${import.meta.env.VITE_BASE_URL}/projectAttendeeCategory/${projectId}`,
+        `${import.meta.env.VITE_BASE_URL}/project-attendee-category/${projectId}`,
         {
           method: "GET",
           headers: {

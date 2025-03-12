@@ -38,7 +38,7 @@ const CreateProject = () => {
     setLoading(true); // Set loading to true before starting the fetch
     try {
       const response = await fetch(
-        `${import.meta.env.VITE_BASE_URL}/project/getProject/${id}`,
+        `${import.meta.env.VITE_BASE_URL}/project/get-project/${id}`,
         {
           method: "GET",
           headers: {
@@ -79,7 +79,7 @@ const CreateProject = () => {
       let response;
       if (id) {
         response = await fetch(
-          `${import.meta.env.VITE_BASE_URL}/project/updateProject/${id}`, // Adjust the endpoint as needed
+          `${import.meta.env.VITE_BASE_URL}/project/update-project/${id}`, // Adjust the endpoint as needed
           {
             method: "PUT",
             headers: {
@@ -91,7 +91,7 @@ const CreateProject = () => {
         );
       } else {
         response = await fetch(
-          `${import.meta.env.VITE_BASE_URL}/project/createProject`, // Adjust the endpoint as needed
+          `${import.meta.env.VITE_BASE_URL}/project/create-project`, // Adjust the endpoint as needed
           {
             method: "POST",
             headers: {

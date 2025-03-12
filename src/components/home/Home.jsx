@@ -15,7 +15,7 @@ const Home = () => {
       const response = await fetch(
         `${
           import.meta.env.VITE_BASE_URL
-        }/organization/getOrganizationByUser/${userId}`,
+        }/organization/get-organization-by-user/${userId}`,
         {
           method: "GET",
           headers: {

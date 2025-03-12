@@ -29,7 +29,7 @@ const ManageCategoryFormFieldPage = () => {
       const response = await fetch(
         `${
           import.meta.env.VITE_BASE_URL
-        }/projectAttendeeCategory/${projectId}/getFormFieldsByCategory/${categoryId}`,
+        }/projectAttendeeCategory/${projectId}/get-form-fields-by-category/${categoryId}`,
         {
           method: "GET",
           headers: {
@@ -251,7 +251,7 @@ const ManageCategoryFormFieldPage = () => {
     setLoadingCategories(true);
     try {
       const response = await fetch(
-        `${import.meta.env.VITE_BASE_URL}/projectAttendeeCategory/${projectId}`,
+        `${import.meta.env.VITE_BASE_URL}/project-attendee-category/${projectId}`,
         {
           method: "GET",
           headers: {
@@ -283,7 +283,7 @@ const ManageCategoryFormFieldPage = () => {
     setLoadingFormFields(true);
     try {
       const response = await fetch(
-        `${import.meta.env.VITE_BASE_URL}/projectFormField/${projectId}`,
+        `${import.meta.env.VITE_BASE_URL}/project-form-field/${projectId}`,
         {
           method: "GET",
           headers: {
@@ -328,7 +328,7 @@ const ManageCategoryFormFieldPage = () => {
       const response = await fetch(
         `${
           import.meta.env.VITE_BASE_URL
-        }/projectAttendeeCategory/${projectId}/addFieldsToCategory`,
+        }/projectAttendeeCategory/${projectId}/add-fields-to-category`,
         {
           method: "POST",
           headers: {

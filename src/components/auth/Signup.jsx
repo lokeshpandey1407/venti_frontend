@@ -28,7 +28,7 @@ const Signup = () => {
 
     try {
       const response = await fetch(
-        `${import.meta.env.VITE_BASE_URL}/user/createUser`,
+        `${import.meta.env.VITE_BASE_URL}/user/create-user`,
         {
           method: "POST",
           headers: {

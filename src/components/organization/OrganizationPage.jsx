@@ -47,7 +47,7 @@ const OrganizationPage = () => {
     setLoading(true); // Set loading to true before starting the fetch
     try {
       const response = await fetch(
-        `${import.meta.env.VITE_BASE_URL}/project/getProjectsByUser/${userId}`,
+        `${import.meta.env.VITE_BASE_URL}/project/get-projects-by-user/${userId}`,
         {
           method: "GET",
           headers: {

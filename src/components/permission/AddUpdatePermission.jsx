@@ -50,7 +50,7 @@ const AddUpdatePermission = () => {
     setLoading(true);
     try {
       const response = await fetch(
-        `${import.meta.env.VITE_BASE_URL}/permission/createPermission`,
+        `${import.meta.env.VITE_BASE_URL}/permission/create-permission`,
         {
           method: "POST",
           headers: {
@@ -86,7 +86,7 @@ const AddUpdatePermission = () => {
       const response = await fetch(
         `${
           import.meta.env.VITE_BASE_URL
-        }/permission/updatePermisson/${updatePermission}`,
+        }/permission/update-permisson/${updatePermission}`,
         {
           method: "PUT",
           headers: {
@@ -149,7 +149,7 @@ const AddUpdatePermission = () => {
     setUpdatePermission(permId);
     try {
       const response = await fetch(
-        `${import.meta.env.VITE_BASE_URL}/permission/getPermissions/${permId}`,
+        `${import.meta.env.VITE_BASE_URL}/permission/get-permissions/${permId}`,
         {
           method: "GET",
           headers: {
@@ -176,7 +176,7 @@ const AddUpdatePermission = () => {
       const response = await fetch(
         `${
           import.meta.env.VITE_BASE_URL
-        }/permission/deletePermission/${permId}`,
+        }/permission/delete-permission/${permId}`,
         {
           method: "DELETE",
           headers: {

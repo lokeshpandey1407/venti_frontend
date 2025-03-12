@@ -32,7 +32,7 @@ const EventRegistration = () => {
       const response = await fetch(
         `${
           import.meta.env.VITE_BASE_URL
-        }/projectAttendeeCategory/${projectId}/getFormFieldsByCategory/${categoryId}`,
+        }/projectAttendeeCategory/${projectId}/get-form-fields-by-category/${categoryId}`,
         {
           method: "GET",
           headers: {
@@ -61,7 +61,7 @@ const EventRegistration = () => {
       const response = await fetch(
         `${
           import.meta.env.VITE_BASE_URL
-        }/attendee/${projectId}/updateAttendeeByRegistration/${attendeeId}`,
+        }/attendee/${projectId}/update-attendee-by-registration/${attendeeId}`,
         {
           method: "PUT",
           headers: {
@@ -92,7 +92,7 @@ const EventRegistration = () => {
   const fetchEvent = async () => {
     try {
       const response = await fetch(
-        `${import.meta.env.VITE_BASE_URL}/project/getProject/${projectId}`,
+        `${import.meta.env.VITE_BASE_URL}/project/get-project/${projectId}`,
         {
           method: "GET",
           headers: {
@@ -122,7 +122,7 @@ const EventRegistration = () => {
       const response = await fetch(
         `${
           import.meta.env.VITE_BASE_URL
-        }/attendee/${projectId}/getAttendeeForRegistration/${attendeeId}`,
+        }/attendee/${projectId}/get-attendee-for-registration/${attendeeId}`,
         {
           method: "GET",
           headers: {

@@ -23,7 +23,7 @@ const ManageCategoryPage = () => {
     setLoading(true);
     try {
       const response = await fetch(
-        `${import.meta.env.VITE_BASE_URL}/projectAttendeeCategory/${projectId}`,
+        `${import.meta.env.VITE_BASE_URL}/project-attendee-category/${projectId}`,
         {
           method: "POST",
           headers: {
@@ -108,7 +108,7 @@ const ManageCategoryPage = () => {
     setLoading(true);
     try {
       const response = await fetch(
-        `${import.meta.env.VITE_BASE_URL}/projectAttendeeCategory/${projectId}`,
+        `${import.meta.env.VITE_BASE_URL}/project-attendee-category/${projectId}`,
         {
           method: "GET",
           headers: {
@@ -141,7 +141,7 @@ const ManageCategoryPage = () => {
       const response = await fetch(
         `${
           import.meta.env.VITE_BASE_URL
-        }/projectAttendeeCategory/${projectId}/${categoryId}`,
+        }/project-attendee-category/${projectId}/${categoryId}`,
         {
           method: "DELETE",
           headers: {
@@ -176,7 +176,7 @@ const ManageCategoryPage = () => {
       const response = await fetch(
         `${
           import.meta.env.VITE_BASE_URL
-        }/projectAttendeeCategory/${projectId}/${categoryId}`,
+        }/project-attendee-category/${projectId}/${categoryId}`,
         {
           method: "GET",
           headers: {

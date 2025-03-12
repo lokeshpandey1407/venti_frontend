@@ -13,7 +13,7 @@ const ManageRolePermissions = () => {
     setLoading(true);
     try {
       const response = await fetch(
-        `${import.meta.env.VITE_BASE_URL}/role/getroles`,
+        `${import.meta.env.VITE_BASE_URL}/role/get-roles`,
         {
           method: "GET",
           headers: {
@@ -109,7 +109,7 @@ const ManageRolePermissions = () => {
     e.preventDefault();
     try {
       const response = await fetch(
-        `${import.meta.env.VITE_BASE_URL}/role/add_update_role_permission`,
+        `${import.meta.env.VITE_BASE_URL}/role/add-update-role-permission`,
         {
           method: "POST",
           headers: {
@@ -151,7 +151,7 @@ const ManageRolePermissions = () => {
       const response = await fetch(
         `${
           import.meta.env.VITE_BASE_URL
-        }/role/remove_role_permission/${selectedRole}`,
+        }/role/remove-role-permission/${selectedRole}`,
         {
           method: "DELETE",
           headers: {

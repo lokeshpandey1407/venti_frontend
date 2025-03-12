@@ -60,7 +60,7 @@ const AddUpdaterole = () => {
     setLoading(true);
     try {
       const response = await fetch(
-        `${import.meta.env.VITE_BASE_URL}/role/createrole`,
+        `${import.meta.env.VITE_BASE_URL}/role/create-role`,
         {
           method: "POST",
           headers: {
@@ -99,7 +99,7 @@ const AddUpdaterole = () => {
     setLoading(true);
     try {
       const response = await fetch(
-        `${import.meta.env.VITE_BASE_URL}/role/updateRole/${updaterole}`,
+        `${import.meta.env.VITE_BASE_URL}/role/update-role/${updaterole}`,
         {
           method: "PUT",
           headers: {
@@ -134,7 +134,7 @@ const AddUpdaterole = () => {
     setLoading(true);
     try {
       const response = await fetch(
-        `${import.meta.env.VITE_BASE_URL}/role/getroles`,
+        `${import.meta.env.VITE_BASE_URL}/role/get-roles`,
         {
           method: "GET",
           headers: {
@@ -162,7 +162,7 @@ const AddUpdaterole = () => {
     setUpdaterole(permId);
     try {
       const response = await fetch(
-        `${import.meta.env.VITE_BASE_URL}/role/getroles/${permId}`,
+        `${import.meta.env.VITE_BASE_URL}/role/get-roles/${permId}`,
         {
           method: "GET",
           headers: {
@@ -187,7 +187,7 @@ const AddUpdaterole = () => {
   const handleDeleterole = async (permId) => {
     try {
       const response = await fetch(
-        `${import.meta.env.VITE_BASE_URL}/role/deleterole/${permId}`,
+        `${import.meta.env.VITE_BASE_URL}/role/delete-role/${permId}`,
         {
           method: "DELETE",
           headers: {

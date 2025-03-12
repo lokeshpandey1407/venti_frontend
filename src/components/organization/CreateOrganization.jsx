@@ -45,7 +45,7 @@ const CreateOrganization = () => {
     setLoading(true); // Set loading to true before starting the fetch
     try {
       const response = await fetch(
-        `${import.meta.env.VITE_BASE_URL}/organization/getOrganizations/${id}`,
+        `${import.meta.env.VITE_BASE_URL}/organization/get-organizations/${id}`,
         {
           method: "GET",
           headers: {
@@ -80,7 +80,7 @@ const CreateOrganization = () => {
         response = await fetch(
           `${
             import.meta.env.VITE_BASE_URL
-          }/organization/updateOrganization/${id}`,
+          }/organization/update-organization/${id}`,
           {
             method: "PUT",
             headers: {
@@ -92,7 +92,7 @@ const CreateOrganization = () => {
         );
       } else {
         response = await fetch(
-          `${import.meta.env.VITE_BASE_URL}/organization/createOrganization`,
+          `${import.meta.env.VITE_BASE_URL}/organization/create-organization`,
           {
             method: "POST",
             headers: {
@@ -128,7 +128,7 @@ const CreateOrganization = () => {
       const response = await fetch(
         `${
           import.meta.env.VITE_BASE_URL
-        }/organization/assignOrganizationToUser?userId=${userId}&organizationId=${organizationId}`,
+        }/organization/assign-organization-to-user?userId=${userId}&organizationId=${organizationId}`,
         {
           method: "POST",
           headers: {
