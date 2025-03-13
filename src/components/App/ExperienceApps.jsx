@@ -10,7 +10,7 @@ const ExperienceApps = () => {
   const fetchApps = async () => {
     try {
       const response = await fetch(
-        `http://localhost:3000/api/v1/experienceApp/${projectId}/getExperienceApp`,
+        `http://localhost:3000/api/v1/experience-app/${projectId}/get-experience-app`,
         {
           method: "Get",
           headers: {

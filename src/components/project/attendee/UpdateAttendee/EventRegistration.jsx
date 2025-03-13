@@ -163,7 +163,6 @@ const EventRegistration = () => {
         }
       );
       if (!response.ok) {
-        alert("error");
         return;
       }
       const res = await response.json();
@@ -172,7 +171,6 @@ const EventRegistration = () => {
       }
     } catch (error) {
       console.log(error);
-      alert(error.message);
     }
   };
 

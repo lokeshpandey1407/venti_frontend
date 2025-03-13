@@ -141,12 +141,11 @@ const AttendeeList = () => {
           body: JSON.stringify(),
         }
       );
-
+      const res = await response.json();
       if (!response.ok) {
-        alert("Some error occurred. Please try again");
+        alert(res.message || "Some error occurred. Please try again");
       }
 
-      const res = await response.json();
       if (res.success) {
         console.log(res.data);
         alert(
@@ -163,7 +162,7 @@ const AttendeeList = () => {
 
   const generateRegistrationLink = (attendeeId) => {
     const link = `http://localhost:5173/register-on-event/${projectId}/${attendeeId}`;
-    alert(`Public url is - ${link}`);
+    window.open(link, "_blank");
   };
 
   return (

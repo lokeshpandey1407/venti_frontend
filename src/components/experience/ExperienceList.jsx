@@ -10,7 +10,7 @@ const ExperienceList = () => {
   const fetchExperiences = async () => {
     try {
       const response = await fetch(
-        "http://localhost:3000/api/v1/experience/getAllExperiences",
+        "http://localhost:3000/api/v1/experience/get-all-experiences",
         { method: "Get" }
       );
 
