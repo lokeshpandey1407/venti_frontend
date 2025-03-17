@@ -20,7 +20,7 @@ const AddApp = () => {
   const fetchExperience = async () => {
     try {
       const response = await fetch(
-        `http://localhost:3000/api/v1/experience/get-experience/${experienceId}`,
+        `${import.meta.env.VITE_BASE_URL}/experience/get-experience/${experienceId}`,
         { method: "Get" }
       );
       if (response.ok) {
@@ -40,7 +40,7 @@ const AddApp = () => {
   const fetchApp = async () => {
     try {
       const response = await fetch(
-        `http://localhost:3000/api/v1/experience-app/${projectId}/get-experience-app/${appId}`,
+        `${import.meta.env.VITE_BASE_URL}/experience-app/${projectId}/get-experience-app/${appId}`,
         { method: "Get", headers: { Authorization: `Bearer ${token}` } }
       );
       if (response.ok) {
@@ -994,7 +994,7 @@ const AddApp = () => {
     if (!appId) {
       try {
         const updateResponse = await fetch(
-          `http://localhost:3000/api/v1/experience-app/${projectId}/${experienceId}/add-experience-app`,
+          `${import.meta.env.VITE_BASE_URL}/experience-app/${projectId}/${experienceId}/add-experience-app`,
           {
             method: "POST",
             headers: {
@@ -1017,7 +1017,7 @@ const AddApp = () => {
     } else {
       try {
         const updateResponse = await fetch(
-          `http://localhost:3000/api/v1/experience-app/${projectId}/${experienceId}/update-experience-app/${appId}`,
+          `${import.meta.env.VITE_BASE_URL}/experience-app/${projectId}/${experienceId}/update-experience-app/${appId}`,
           {
             method: "PUT",
             headers: {
@@ -1044,7 +1044,7 @@ const AddApp = () => {
   const handleDelete = async () => {
     try {
       const response = await fetch(
-        `http://localhost:3000/api/v1/experience-app/${projectId}/delete-experience-app/${appId}`,
+        `${import.meta.env.VITE_BASE_URL}/experience-app/${projectId}/delete-experience-app/${appId}`,
         { method: "DELETE", headers: { Authorization: `Bearer ${token}` } }
       );
       if (response.ok) {

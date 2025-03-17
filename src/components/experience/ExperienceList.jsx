@@ -10,7 +10,7 @@ const ExperienceList = () => {
   const fetchExperiences = async () => {
     try {
       const response = await fetch(
-        "http://localhost:3000/api/v1/experience/get-all-experiences",
+        `${import.meta.env.VITE_BASE_URL}/experience/get-all-experiences`,
         { method: "Get" }
       );
 

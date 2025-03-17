@@ -30,6 +30,7 @@ const Login = ({ showAlert }) => {
       if (response.ok) {
         localStorage.setItem("authToken", res?.user.data.token);
         localStorage.setItem("authUserId", res?.user.data.userId);
+        localStorage.setItem("authEmail", res?.user.data.email);
         showAlert("Signin successful", "success");
         navigate("/dashboard");
       } else {

@@ -9,7 +9,7 @@ const Experience = () => {
   const fetchExperience = async () => {
     try {
       const response = await fetch(
-        `http://localhost:3000/api/v1/experience/get-experience/${experienceId}`,
+        `${import.meta.env.VITE_BASE_URL}/experience/get-experience/${experienceId}`,
         { method: "Get" }
       );
       if (response.ok) {

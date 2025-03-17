@@ -10,7 +10,7 @@ const ExperienceApps = () => {
   const fetchApps = async () => {
     try {
       const response = await fetch(
-        `http://localhost:3000/api/v1/experience-app/${projectId}/get-experience-app`,
+        `${import.meta.env.VITE_BASE_URL}/experience-app/${projectId}/get-experience-app`,
         {
           method: "Get",
           headers: {

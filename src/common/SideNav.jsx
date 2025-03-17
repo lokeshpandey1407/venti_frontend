@@ -5,11 +5,12 @@ import logo from "../assets/logo.svg";
 const SideNav = () => {
   const locationapp = useLocation();
   const path = locationapp.pathname;
+  console.log(path);
 
   return (
     <div className="w-[5rem] lg:w-[14vw] max-w-[15rem] h-full z-10 bg-secondary flex flex-col justify-start items-center font-roboto">
       <div className="flex flex-col justify-start items-center gap-8 w-full">
-        <div className="w-full h-[6rem] flex justify-center items-center">
+        <div className="w-full h-[6rem] flex justify-center items-center ">
           <NavLink
             to="/dashboard"
             className="text-transparent text-[2rem] bg-gradient-to-r from-[#FFF2D1] to-[#FF9F10] bg-clip-text font-bold mt-8"
@@ -22,13 +23,14 @@ const SideNav = () => {
         <div className="w-full h-[15rem] flex flex-col justify-center lg:justify-start items-center gap-2 text-text-inactive font-medium text-ellipsis overflow-hidden">
           <p className="hidden lg:block w-full text-left px-4">Dashboard</p>
           <NavLink
-            to="/dashboard/main"
-            className={() =>
-              path === "/dashboard/main"
-                ? "bg-accent text-text w-[4rem] lg:w-[85%] h-[4rem] lg:h-[2.5rem] rounded-2xl lg:rounded-full text-left lg:px-6 flex lg:justify-start justify-center items-center transition ease-in-out duration-300 gap-2"
-                : "bg-transparent text-text-inactive hover:bg-text/20 w-[4rem]  lg:w-[85%] h-[4rem] lg:h-[2.5rem] rounded-2xl lg:rounded-full text-left lg:px-6 flex lg:justify-start justify-center items-center transition ease-in-out duration-300 hover:bg-background hover:text-text gap-2"
+            to="/dashboard/project"
+            className={({ isActive }) =>
+              isActive
+                ? "bg-accent! text-text! w-[4rem]! lg:w-[85%]! h-[4rem]! lg:h-[2.5rem]! rounded-2xl! lg:rounded-full! text-left! lg:px-6 flex lg:justify-start justify-center items-center transition ease-in-out duration-300 gap-2"
+                : "bg-transparent! text-text-inactive! hover:bg-text/20! w-[4rem]!  lg:w-[85%]! h-[4rem]! lg:h-[2.5rem]! rounded-2xl! lg:rounded-full text-left lg:px-6 flex lg:justify-start justify-center items-center transition ease-in-out duration-300 hover:bg-background hover:text-text gap-2"
             }
-            title="dashboard"
+            s
+            title="project"
           >
             {/* form svg  */}
             <svg
@@ -100,16 +102,16 @@ const SideNav = () => {
                 ></path>{" "}
               </g>
             </svg>
-            <p className="hidden lg:block">Dashboard</p>
+            <p className="hidden lg:block">Projects</p>
           </NavLink>
           <NavLink
-            to="/dashboard/invitee"
+            to="/dashboard/members"
             className={({ isActive }) =>
               isActive
-                ? "bg-accent text-text w-[4rem] lg:w-[85%] h-[4rem] lg:h-[2.5rem] rounded-2xl lg:rounded-full text-left lg:px-6 flex lg:justify-start justify-center items-center transition ease-in-out duration-300 gap-2"
-                : "bg-transparent text-text-inactive hover:bg-text/20 w-[4rem]  lg:w-[85%] h-[4rem] lg:h-[2.5rem] rounded-2xl lg:rounded-full text-left lg:px-6 flex lg:justify-start justify-center items-center transition ease-in-out duration-300 hover:bg-background hover:text-text gap-2"
+                ? "bg-accent! text-text! w-[4rem]! lg:w-[85%]! h-[4rem]! lg:h-[2.5rem]! rounded-2xl! lg:rounded-full! text-left! lg:px-6 flex lg:justify-start justify-center items-center transition ease-in-out duration-300 gap-2"
+                : "bg-transparent! text-text-inactive! hover:bg-text/20! w-[4rem]!  lg:w-[85%]! h-[4rem]! lg:h-[2.5rem]! rounded-2xl! lg:rounded-full text-left lg:px-6 flex lg:justify-start justify-center items-center transition ease-in-out duration-300 hover:bg-background hover:text-text gap-2"
             }
-            title="Invite People"
+            title="Manage members"
           >
             {/* Invitee svg  */}
             <svg
@@ -134,16 +136,16 @@ const SideNav = () => {
                 ></path>{" "}
               </g>
             </svg>
-            <p className="hidden lg:block">Invitee</p>
+            <p className="hidden lg:block">Members</p>
           </NavLink>
           <NavLink
-            to="/dashboard/emails"
+            to="/dashboard/settings"
             className={({ isActive }) =>
               isActive
-                ? "bg-accent text-text w-[4rem] lg:w-[85%] h-[4rem] lg:h-[2.5rem] rounded-2xl lg:rounded-full text-left lg:px-6 flex lg:justify-start justify-center items-center transition ease-in-out duration-300 gap-2"
-                : "bg-transparent text-text-inactive hover:bg-text/20 w-[4rem]  lg:w-[85%] h-[4rem] lg:h-[2.5rem] rounded-2xl lg:rounded-full text-left lg:px-6 flex lg:justify-start justify-center items-center transition ease-in-out duration-300 hover:bg-background hover:text-text gap-2"
+                ? "bg-accent! text-text! w-[4rem]! lg:w-[85%]! h-[4rem]! lg:h-[2.5rem]! rounded-2xl! lg:rounded-full! text-left! lg:px-6 flex lg:justify-start justify-center items-center transition ease-in-out duration-300 gap-2"
+                : "bg-transparent! text-text-inactive! hover:bg-text/20! w-[4rem]!  lg:w-[85%]! h-[4rem]! lg:h-[2.5rem]! rounded-2xl! lg:rounded-full text-left lg:px-6 flex lg:justify-start justify-center items-center transition ease-in-out duration-300 hover:bg-background hover:text-text gap-2"
             }
-            title="Send Emails"
+            title="Organization settings"
           >
             <svg
               viewBox="0 0 24 24"
@@ -178,9 +180,9 @@ const SideNav = () => {
                 ></rect>{" "}
               </g>
             </svg>
-            <p className="hidden lg:block">Emails</p>
+            <p className="hidden lg:block">Settings</p>
           </NavLink>
-          <NavLink
+          {/* <NavLink
             to="/dashboard/analytics"
             className={({ isActive }) =>
               isActive
@@ -244,7 +246,7 @@ const SideNav = () => {
               </g>
             </svg>
             <p className="hidden lg:block">Experiences</p>
-          </NavLink>
+          </NavLink> */}
         </div>
       </div>
     </div>
