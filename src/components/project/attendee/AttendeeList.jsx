@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router";
 
-const AttendeeList = () => {
+const AttendeeList = ({ showAlert }) => {
   const [attendees, setAttendees] = useState([]);
   const [categories, setCategories] = useState([]);
   const [tableFields, setTableFields] = useState([]);
@@ -103,6 +103,13 @@ const AttendeeList = () => {
 
       const res = await response.json();
       if (res.success) {
+        if (res.data.length <= 0) {
+          showAlert(
+            "Project has no attendee category. Please add category first.",
+            "error"
+          );
+          return;
+        }
         setSelectedCategoryFilter(res?.data[0]?.name || "");
         fetchCategoryFormFieldsData(res?.data[0]?.id);
         setCategories(res.data);
@@ -167,12 +174,12 @@ const AttendeeList = () => {
 
   return (
     <div className="container mx-auto">
-      <div className="flex flex-row gap-1">
+      <div className="flex flex-row gap-1 text-sm">
         {categories.map((category) => {
           return (
             <button
               key={category.id}
-              className={` min-w-20 shadow-2xl text-black rounded-xl p-2 hover:bg-blue-400 cursor-pointer ${
+              className={`text-sm font-bold min-w-20 shadow-2xl text-black rounded-md p-2 hover:bg-blue-400 cursor-pointer ${
                 selectedCategoryFilter === category.name
                   ? "bg-blue-400"
                   : "bg-gray-300"
@@ -187,74 +194,98 @@ const AttendeeList = () => {
           );
         })}
       </div>
-
-      <table className="min-w-full border-collapse border border-gray-200 mt-2">
-        <thead>
-          <tr>
-            <th className="border border-gray-200 p-2">First Name</th>
-            <th className="border border-gray-200 p-2">Category</th>
-            <th className="border border-gray-200 p-2">Active</th>
-            {tableFields.map((field) => {
-              return (
-                <th key={field.name} className="border border-gray-200 p-2">
-                  {field.name}
+      <div
+        className={`h-fit mt-10 p-[2px] bg-gradient-to-b from-border-gradient-left to-border-gradient-right rounded-md w-full xs:w-[70vw] sm:w-[75vw] md:w-[80vw] lg:w-[83vw] overflow-hidden`}
+      >
+        <div
+          className="w-full max-h-[38rem]
+        h-full rounded-md overflow-x-auto bg-gradient-to-b from-primary to-primary-grad"
+        >
+          <table className=" py-[2rem] w-full text-sm ">
+            <thead className="text-sm bg-gradient-to-b from-head-gradient-top to-head-gradient-bottom border-b-2 border-head-gradient-top font-semibold text-[1.1rem] sticky top-0">
+              <tr>
+                <th className="p-[1rem] text-center text-sm px-2 ">
+                  First Name
                 </th>
-              );
-            })}
-            <th className="border border-gray-200 p-2">Actions</th>
-          </tr>
-        </thead>
-        <tbody>
-          {attendees.map((attendee) => (
-            <tr key={attendee.id}>
-              <td className="border border-gray-200 p-2">
-                {attendee.first_name}
-              </td>
-              <td className="border border-gray-200 p-2">
-                {attendee.category_name}
-              </td>
-              <td className="border border-gray-200 p-2">
-                {attendee.is_active ? "Yes" : "No"}
-              </td>
-              {tableFields.map((field, index) => {
-                return (
-                  <td key={index} className="border border-gray-200 p-2">
-                    {attendee.form_fields_data[field.name]}
+                <th className="p-[1rem] text-center text-sm ">Category</th>
+                <th className="p-[1rem] text-center text-sm ">Active</th>
+                {tableFields.map((field) => {
+                  return (
+                    <th
+                      key={field.name}
+                      className="p-[1rem] text-center text-sm "
+                    >
+                      {field.name}
+                    </th>
+                  );
+                })}
+                <th className="p-[1rem] text-center text-sm ">Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              {attendees.length > 0 ? (
+                attendees.map((attendee) => (
+                  <tr key={attendee.id} className="py-[1rem] text-center">
+                    <td className="py-[1rem] px-2 font-roboto font-normal sm:text-[0.8rem] md:text-[0.9rem]  lg:text-sm  max-w-[10rem] overflow-hidden text-ellipsis">
+                      {attendee.first_name}
+                    </td>
+                    <td className="py-[1rem] px-2 font-roboto font-normal sm:text-[0.8rem] md:text-[0.9rem]  lg:text-sm  max-w-[10rem] overflow-hidden text-ellipsis">
+                      {attendee.category_name}
+                    </td>
+                    <td className="py-[1rem] px-2 font-roboto font-normal sm:text-[0.8rem] md:text-[0.9rem]  lg:text-sm  max-w-[10rem] overflow-hidden text-ellipsis">
+                      {attendee.is_active ? "Yes" : "No"}
+                    </td>
+                    {tableFields.map((field, index) => {
+                      return (
+                        <td
+                          key={index}
+                          className="py-[1rem] px-2 font-roboto font-normal sm:text-[0.8rem] md:text-[0.9rem]  lg:text-sm  max-w-[10rem] overflow-hidden text-ellipsis"
+                        >
+                          {attendee.form_fields_data[field.name]}
+                        </td>
+                      );
+                    })}
+                    <td className="py-[1rem] px-2 font-roboto font-normal sm:text-[0.8rem] md:text-[0.9rem]  lg:text-sm  max-w-[10rem] overflow-hidden text-ellipsis">
+                      <button
+                        onClick={() => handleEdit(attendee)}
+                        className="bg-yellow-500 text-white p-1 rounded mr-1 cursor-pointer"
+                      >
+                        Edit
+                      </button>
+                      <button
+                        onClick={() => handleDelete(attendee.id)}
+                        className="bg-red-500 text-white p-1 rounded mr-1 cursor-pointer"
+                      >
+                        Delete
+                      </button>
+
+                      <button
+                        onClick={() => generateRegistrationLink(attendee.id)}
+                        className="bg-blue-500 text-white p-1 rounded mr-1 cursor-pointer"
+                      >
+                        Send Invite
+                      </button>
+
+                      <button
+                        onClick={() => generateAttendeeBadge(attendee.id)}
+                        className="bg-green-500 text-white p-1 rounded cursor-pointer"
+                      >
+                        Generate Badge
+                      </button>
+                    </td>
+                  </tr>
+                ))
+              ) : (
+                <tr>
+                  <td colSpan={4} className=" text-center">
+                    <p className="text-sm p-2">No Attendee present</p>
                   </td>
-                );
-              })}
-              <td className="border border-gray-200 p-2 flex flex-row flex-wrap gap-1">
-                <button
-                  onClick={() => handleEdit(attendee)}
-                  className="bg-yellow-500 text-white p-1 rounded mr-1 cursor-pointer"
-                >
-                  Edit
-                </button>
-                <button
-                  onClick={() => handleDelete(attendee.id)}
-                  className="bg-red-500 text-white p-1 rounded mr-1 cursor-pointer"
-                >
-                  Delete
-                </button>
-
-                <button
-                  onClick={() => generateRegistrationLink(attendee.id)}
-                  className="bg-blue-500 text-white p-1 rounded mr-1 cursor-pointer"
-                >
-                  Send Invite
-                </button>
-
-                <button
-                  onClick={() => generateAttendeeBadge(attendee.id)}
-                  className="bg-green-500 text-white p-1 rounded cursor-pointer"
-                >
-                  Generate Badge
-                </button>
-              </td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
+                </tr>
+              )}
+            </tbody>
+          </table>
+        </div>
+      </div>
     </div>
   );
 };

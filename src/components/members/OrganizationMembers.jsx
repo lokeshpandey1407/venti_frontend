@@ -140,6 +140,15 @@ const OrgMembers = ({ showAlert }) => {
       showAlert("Please enter a valid email address", "error");
       return;
     }
+
+    if (members.findIndex((member) => member.email === newMemberEmail)) {
+      showAlert(
+        `User with email (${newMemberEmail}) is already present in the organization`,
+        "error"
+      );
+      setNewMemberEmail("");
+      return;
+    }
     setIsAdding(true);
 
     try {
@@ -182,8 +191,8 @@ const OrgMembers = ({ showAlert }) => {
   }, []);
 
   return (
-    <div className="min-h-scree w-full p-4 md:p-8">
-      <div className={`max-w-7xl mx-auto ${"animate-fadeIn"}`}>
+    <div className="min-h-scree w-full p-4">
+      <div className={`max-w-7xl mx-auto animate-fadeIn`}>
         <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-8">
           <div>
             <p className="font-sora font-bold text-transparent bg-gradient-to-l from-gradient-left to-gradient-right bg-clip-text text-[2.5rem]">

@@ -4,7 +4,7 @@ const ExperienceCard = ({ data }) => {
   const navigate = useNavigate();
   const { projectId } = useParams();
   const handleSelectExperience = (experience_id) => {
-    navigate(`/apps/${projectId}/${experience_id}/addApp`);
+    navigate(`/dashboard/project/${projectId}/apps/${experience_id}/addApp`);
   };
   return (
     <button

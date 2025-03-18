@@ -1,11 +1,5 @@
 import React, { useContext, useEffect, useState } from "react";
-import {
-  useLocation,
-  useNavigate,
-  Routes,
-  Route,
-  BrowserRouter,
-} from "react-router-dom";
+import { useLocation, useNavigate, Routes, Route } from "react-router-dom";
 import SideNav from "../../common/SideNav";
 // import InviteList from "../components/dashboard/InviteList";
 // import Emails from "../components/dashboard/Emails";
@@ -14,11 +8,19 @@ import NotFound from "../../common/NotFound";
 import Loader from "../../common/Loader";
 
 import TopHeader from "../../common/TopHeader";
-import Home from "../home/Home";
+import Home from "./home/Home";
 import OrganizationPage from "../organization/OrganizationPage";
 import ProjectPage from "../project/ProjectPage";
 import Projects from "../project/Projects";
 import OrgMembers from "../members/OrganizationMembers";
+import OrganizationSetting from "../organization/OrganizationSetting";
+import ManageAttendeePage from "../project/attendee/ManageAttendeePage";
+import ManageCategoryPage from "../project/category/ManageCategoryPage";
+import Apps from "../App/ExperienceApps";
+import AddApp from "../App/AddApp";
+import ManageCategoryFormFieldPage from "../project/category/ManageCategoryFormFieldPage";
+import ManageFormFields from "../project/formFields/ManageFormField";
+import ProjectSettings from "../project/Settings";
 // import Experiences from "../components/dashboard/Experiences";
 // import Main from "../components/dashboard/Main";
 // import Modal from "../components/dashboard/global/Modal";
@@ -101,6 +103,7 @@ const Dashboard = (props) => {
       "/dashboard/organization",
       "/dashboard/project",
       "/dashboard/members",
+      "/dashboard/settings",
       "/dashboard/main",
     ];
 
@@ -153,37 +156,69 @@ const Dashboard = (props) => {
               />
               <Route
                 path="/members"
-                element={
-                  <OrgMembers
-                    organization={organization[0] || {}}
-                    showAlert={showAlert}
-                  />
-                }
+                element={<OrgMembers showAlert={showAlert} />}
+              />
+              <Route
+                path="/settings"
+                element={<OrganizationSetting showAlert={showAlert} />}
               />
               <Route
                 path="/organization/:id"
                 element={<OrganizationPage showAlert={showAlert} />}
               />
               <Route
-                path="/project/:id"
+                path="/project/:projectId"
                 element={<ProjectPage showAlert={showAlert} />}
               />
+
               <Route
+                path="/project/:projectId/manageAttendee"
+                element={<ManageAttendeePage showAlert={showAlert} />}
+              />
+              <Route
+                path="/project/:projectId/manageCategory"
+                element={<ManageCategoryPage showAlert={showAlert} />}
+              />
+              <Route
+                path="/project/:projectId/apps"
+                element={<Apps showAlert={showAlert} />}
+              />
+              <Route
+                path="/project/:projectId/apps/:experienceId/updateApp/:appId"
+                element={<AddApp showAlert={showAlert} />}
+              />
+              <Route
+                path="/project/:projectId/apps/:experienceId/addApp"
+                element={<AddApp showAlert={showAlert} />}
+              />
+              <Route
+                path="/project/:projectId/manageFormFields"
+                element={<ManageFormFields showAlert={showAlert} />}
+              />
+              <Route
+                path="/project/:projectId/manageCategoryFields"
+                element={<ManageCategoryFormFieldPage showAlert={showAlert} />}
+              />
+              <Route
+                path="/project/:projectId/settings"
+                element={<ProjectSettings showAlert={showAlert} />}
+              />
+              {/* <Route
                 path="/invitee"
                 element={
                   //   <InviteList showAlert={showAlert} setLoader={setLoader} />
                   <div>this is invitee route</div>
                 }
-              />
-              <Route path="/emails" element={<div>this is email route</div>} />
-              <Route
+              /> */}
+              {/* <Route path="/emails" element={<div>this is email route</div>} /> */}
+              {/* <Route
                 path="/analytics"
                 element={
                   // <Analytics showAlert={showAlert} />
                   <div>This is analytics page</div>
                 }
-              />
-              <Route
+              /> */}
+              {/* <Route
                 path="/experiences"
                 element={
                   //   <ExperienceList
@@ -192,14 +227,14 @@ const Dashboard = (props) => {
                   //   />
                   <div>this is experiences list</div>
                 }
-              />
-              <Route
+              /> */}
+              {/* <Route
                 path="/experiences/:uniqueId/:experienceId"
                 element={
                   // <Experiences showAlert={showAlert} />
                   <div>This is experience id page</div>
                 }
-              />
+              /> */}
             </Routes>
           </div>
         )}

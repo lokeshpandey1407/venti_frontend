@@ -19,7 +19,7 @@ const CreateProject = () => {
     end_date: "",
     location: "",
     status: ProjectStatus.ACTIVE, // Default value
-    owner_id: localStorage.getItem("authUserId"), // Assuming the owner ID is stored in local storage
+    owner_id: localStorage.getItem("orgId"), // Assuming the owner ID is stored in local storage
   });
   
   const [loading, setLoading] = useState(false);

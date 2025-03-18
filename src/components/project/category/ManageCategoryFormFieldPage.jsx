@@ -95,7 +95,7 @@ const ManageCategoryFormFieldPage = () => {
         attendee_required: false,
         app_shared: false,
       };
- 
+
       setFormFieldsData((prevData) => [...prevData, newDataObject]);
     }
   };
@@ -251,7 +251,9 @@ const ManageCategoryFormFieldPage = () => {
     setLoadingCategories(true);
     try {
       const response = await fetch(
-        `${import.meta.env.VITE_BASE_URL}/project-attendee-category/${projectId}`,
+        `${
+          import.meta.env.VITE_BASE_URL
+        }/project-attendee-category/${projectId}`,
         {
           method: "GET",
           headers: {
@@ -323,7 +325,6 @@ const ManageCategoryFormFieldPage = () => {
       return;
     }
 
-
     try {
       const response = await fetch(
         `${
@@ -355,17 +356,19 @@ const ManageCategoryFormFieldPage = () => {
   };
 
   return (
-    <div className="max-w-full mx-auto p-6">
-      <h2 className="text-2xl font-bold mb-4">Manage Category Form Field</h2>
+    <div className="max-w-full  p-4">
+      <p className=" text-left font-sora font-bold text-transparent bg-gradient-to-l from-gradient-left to-gradient-right bg-clip-text text-[2.5rem]">
+        Category Form Fields
+      </p>
       <form onSubmit={handleSubmit} className="space-y-4">
         <div className="grid grid-row-2 gap-4">
           {/* Category Dropdown */}
-          <div className="flex flex-col max-w-lg">
+          <div className="flex flex-col w-lg">
             <label
               htmlFor="categoryId"
-              className="mb-2 text-sm font-medium text-gray-700"
+              className="mb-2 text-sm text-left font-medium text-white"
             >
-              Category ID
+              Category
             </label>
             <select
               id="categoryId"
@@ -390,38 +393,53 @@ const ManageCategoryFormFieldPage = () => {
 
           {/* Form Field table*/}
           {!loadingFormFields && (
-            <table className="table-auto w-full border border-gray-300 rounded">
-              <thead className=" bg-blue-200">
-                {table.getHeaderGroups().map((headerGroup,index) => (
-                  <tr key={index} className="p-2 text-left">
-                    {headerGroup.headers.map((header,index) => (
-                      <th key={index} className="p-2">
-                        {header.isPlaceholder
-                          ? null
-                          : flexRender(
-                              header.column.columnDef.header,
-                              header.getContext()
+            <div
+              className={`h-fit mt-10 p-[2px] bg-gradient-to-b from-border-gradient-left to-border-gradient-right rounded-md w-full xs:w-[70vw] sm:w-[75vw] md:w-[80vw] lg:w-[83vw] overflow-hidden`}
+            >
+              <div
+                className="w-full max-h-[38rem]
+             h-full rounded-md overflow-x-auto bg-gradient-to-b from-primary to-primary-grad"
+              >
+                <table className=" py-[2rem] w-full text-sm ">
+                  <thead className="text-sm bg-gradient-to-b from-head-gradient-top to-head-gradient-bottom border-b-2 border-head-gradient-top font-semibold text-[1.1rem] sticky top-0">
+                    {table.getHeaderGroups().map((headerGroup, index) => (
+                      <tr key={index} className="p-2 text-left">
+                        {headerGroup.headers.map((header, index) => (
+                          <th
+                            key={index}
+                            className="p-[1rem] text-center text-sm px-2 "
+                          >
+                            {header.isPlaceholder
+                              ? null
+                              : flexRender(
+                                  header.column.columnDef.header,
+                                  header.getContext()
+                                )}
+                          </th>
+                        ))}
+                      </tr>
+                    ))}
+                  </thead>
+                  <tbody className="mt-2">
+                    {table.getRowModel().rows.map((row) => (
+                      <tr
+                        key={row.id}
+                        className="border-b-2 border-gray-400 my-2"
+                      >
+                        {row.getVisibleCells().map((cell) => (
+                          <td key={cell.id} className="p-2">
+                            {flexRender(
+                              cell.column.columnDef.cell,
+                              cell.getContext()
                             )}
-                      </th>
+                          </td>
+                        ))}
+                      </tr>
                     ))}
-                  </tr>
-                ))}
-              </thead>
-              <tbody className="mt-2">
-                {table.getRowModel().rows.map((row) => (
-                  <tr key={row.id} className="border-b-2 border-gray-400 my-2">
-                    {row.getVisibleCells().map((cell) => (
-                      <td key={cell.id} className="p-2">
-                        {flexRender(
-                          cell.column.columnDef.cell,
-                          cell.getContext()
-                        )}
-                      </td>
-                    ))}
-                  </tr>
-                ))}
-              </tbody>
-            </table>
+                  </tbody>
+                </table>
+              </div>
+            </div>
           )}
         </div>
 
@@ -429,7 +447,10 @@ const ManageCategoryFormFieldPage = () => {
         <div className="flex justify-end">
           <button
             type="submit"
-            className="bg-indigo-600 text-white py-2 px-4 rounded"
+            className="w-full text-white bg-background-secondary 
+            hover:bg-chart-background hover:ring-2 hover:outline-none 
+            hover:ring-blue-300 font-medium rounded-lg px-5 py-2.5 text-center 
+            transition ease-in-out duration-150 mt-10 cursor-pointer"
           >
             Save Changes
           </button>

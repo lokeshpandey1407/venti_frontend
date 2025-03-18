@@ -20,7 +20,9 @@ const AddApp = () => {
   const fetchExperience = async () => {
     try {
       const response = await fetch(
-        `${import.meta.env.VITE_BASE_URL}/experience/get-experience/${experienceId}`,
+        `${
+          import.meta.env.VITE_BASE_URL
+        }/experience/get-experience/${experienceId}`,
         { method: "Get" }
       );
       if (response.ok) {
@@ -40,7 +42,9 @@ const AddApp = () => {
   const fetchApp = async () => {
     try {
       const response = await fetch(
-        `${import.meta.env.VITE_BASE_URL}/experience-app/${projectId}/get-experience-app/${appId}`,
+        `${
+          import.meta.env.VITE_BASE_URL
+        }/experience-app/${projectId}/get-experience-app/${appId}`,
         { method: "Get", headers: { Authorization: `Bearer ${token}` } }
       );
       if (response.ok) {
@@ -88,7 +92,7 @@ const AddApp = () => {
         return (
           <div
             key={field.id}
-            className=" h-[6rem] w-full lg:w-[26.5rem] rounded-lg flex justify-between px-4 items-center card border-2 border-gradient-left shadow-inner shadow-border-gradient-right/80"
+            className=" h-[6rem] w-full lg:w-[27rem] rounded-lg flex justify-between px-4 items-center card border-2 border-gradient-left shadow-inner shadow-border-gradient-right/80"
           >
             <div className="grid items-center w-full gap-8">
               <div className="flex flex-col w-full space-y-1.5 ">
@@ -103,7 +107,7 @@ const AddApp = () => {
                   onChange={(e) =>
                     handleInputChange(field.id, parseInt(e.target.value))
                   }
-                  className="flex h-10 w-full rounded-lg outline-none bg-transparent border-sky-600 shadow-sm shadow-sky-700 focus-visible:ring-[3px] focus-visible:ring-sky-700 focus-visible:ring-offset-[2px]"
+                  className="px-2 flex h-10 w-full rounded-lg outline-none bg-transparent border-sky-600 shadow-sm shadow-sky-700 focus-visible:ring-[3px] focus-visible:ring-sky-700 focus-visible:ring-offset-[2px]"
                 />
               </div>
             </div>
@@ -114,7 +118,7 @@ const AddApp = () => {
         return (
           <div
             key={field.id}
-            className="h-[6rem] w-full lg:w-[26.5rem] rounded-lg flex justify-between px-4 items-center card border-2 border-gradient-left shadow-inner shadow-border-gradient-right/80"
+            className="h-[6rem] w-full lg:w-[27rem] rounded-lg flex justify-between px-4 items-center card border-2 border-gradient-left shadow-inner shadow-border-gradient-right/80"
           >
             <div className="flex w-full gap-2 justify-end h-fit items-end">
               <div className="flex flex-col space-y-1.5 w-full">
@@ -125,7 +129,7 @@ const AddApp = () => {
                   id={field.id}
                   placeholder={field.value}
                   value={field.value}
-                  className="flex h-10 w-full rounded-lg outline-none bg-transparent border-sky-600 shadow-sm shadow-sky-700 focus-visible:ring-[3px] focus-visible:ring-sky-700 focus-visible:ring-offset-[2px]"
+                  className="px-2 flex h-10 w-full rounded-lg outline-none bg-transparent border-sky-600 shadow-sm shadow-sky-700 focus-visible:ring-[3px] focus-visible:ring-sky-700 focus-visible:ring-offset-[2px]"
                   onChange={(e) => handleInputChange(field.id, e.target.value)}
                 />
               </div>
@@ -144,7 +148,7 @@ const AddApp = () => {
         return (
           <div
             key={field.id}
-            className="h-[6rem] w-full lg:w-[26.5rem] rounded-lg flex justify-between px-4 items-center card border-2 border-gradient-left shadow-inner shadow-border-gradient-right/80"
+            className="h-[6rem] w-full lg:w-[27rem] rounded-lg flex justify-between px-4 items-center card border-2 border-gradient-left shadow-inner shadow-border-gradient-right/80"
           >
             <div className="flex w-full gap-2 justify-end h-fit items-end">
               <div className="flex flex-col space-y-1.5 w-full">
@@ -156,17 +160,10 @@ const AddApp = () => {
                   placeholder={field.value}
                   type="datetime-local"
                   value={field.value}
-                  className="flex h-10 w-full rounded-lg outline-none bg-transparent border-sky-600 shadow-sm shadow-sky-700 focus-visible:ring-[3px] focus-visible:ring-sky-700 focus-visible:ring-offset-[2px]"
+                  className="px-2 flex h-10 w-full rounded-lg outline-none bg-transparent border-sky-600 shadow-sm shadow-sky-700 focus-visible:ring-[3px] focus-visible:ring-sky-700 focus-visible:ring-offset-[2px]"
                   onChange={(e) => handleInputChange(field.id, e.target.value)}
                 />
               </div>
-              {/* <input
-                                id={`${field.id}-color`}
-                                type="color"
-                                className="flex h-10 w-[8rem] rounded-lg outline-none bg-transparent border-[1px] border-sky-600 py-2 px-3"
-                                value={field.value}
-                                onChange={(e) => handleInputChange(field.id, e.target.value)}
-                            /> */}
             </div>
           </div>
         );
@@ -175,7 +172,7 @@ const AddApp = () => {
         return (
           <div
             key={field.id}
-            className="h-[6rem] w-full lg:w-[26.5rem] rounded-lg flex justify-start px-4 items-center card border-2 border-gradient-left shadow-inner shadow-border-gradient-right/80"
+            className="h-[6rem] w-full lg:w-[27rem] rounded-lg flex justify-start px-4 items-center card border-2 border-gradient-left shadow-inner shadow-border-gradient-right/80"
           >
             <div className="flex w-full gap-1 justify-start h-fit items-center mt-[-1rem]">
               <div className="flex flex-col space-y-1.5 w-full justify-start items-start">
@@ -190,7 +187,7 @@ const AddApp = () => {
                     min={field.range[0] || 0}
                     value={field.value}
                     step={1}
-                    className="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer dark:bg-gray-700"
+                    className="px-2 w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer dark:bg-gray-700"
                     onChange={(e) =>
                       handleInputChange(field.id, parseInt(e.target.value))
                     }
@@ -214,7 +211,7 @@ const AddApp = () => {
         return (
           <div
             key={field.id}
-            className=" h-[6rem] w-full lg:w-[26.5rem] rounded-lg flex justify-between px-4 items-center card border-2 border-gradient-left shadow-inner shadow-border-gradient-right/80"
+            className=" h-[6rem] w-full lg:w-[27rem] rounded-lg flex justify-between px-4 items-center card border-2 border-gradient-left shadow-inner shadow-border-gradient-right/80"
           >
             <div className="grid items-center w-full gap-8">
               <div className="flex flex-col w-full space-y-1.5 ">
@@ -225,7 +222,7 @@ const AddApp = () => {
                   id={field.id}
                   value={field.value}
                   onChange={(e) => handleInputChange(field.id, e.target.value)}
-                  className="flex h-10 w-full rounded-lg outline-none bg-transparent border-sky-600 shadow-sm shadow-sky-700 focus-visible:ring-[3px] focus-visible:ring-sky-700 focus-visible:ring-offset-[2px]"
+                  className="px-2 flex h-10 w-full rounded-lg outline-none bg-transparent border-sky-600 shadow-sm shadow-sky-700 focus-visible:ring-[3px] focus-visible:ring-sky-700 focus-visible:ring-offset-[2px]"
                 >
                   <option value="">Select</option>
                   {field.selection ? (
@@ -251,7 +248,7 @@ const AddApp = () => {
         return (
           <div
             key={field.id}
-            className=" h-[3rem] w-full lg:w-[26.5rem] rounded-lg flex justify-between px-4 items-center card border-2 border-gradient-left shadow-inner shadow-border-gradient-right/80"
+            className=" h-[3rem] w-full lg:w-[27rem] rounded-lg flex justify-between px-4 items-center card border-2 border-gradient-left shadow-inner shadow-border-gradient-right/80"
           >
             <div className="card-content">
               <div className="flex items-center gap-x-2">
@@ -262,7 +259,7 @@ const AddApp = () => {
                   onChange={(e) =>
                     handleInputChange(field.id, e.target.checked)
                   }
-                  className="shrink-0 rounded-sm outline-none bg-transparent border-sky-600 shadow-sm shadow-sky-700 focus-visible:ring-[3px] focus-visible:ring-sky-700 focus-visible:ring-offset-[2px]"
+                  className="px-2 shrink-0 rounded-sm outline-none bg-transparent border-sky-600 shadow-sm shadow-sky-700 focus-visible:ring-[3px] focus-visible:ring-sky-700 focus-visible:ring-offset-[2px]"
                 />
                 <label
                   htmlFor={field.id}
@@ -279,7 +276,7 @@ const AddApp = () => {
         return (
           <div
             key={field.id}
-            className=" h-[6rem] w-full lg:w-[26.5rem] rounded-lg flex justify-between px-4 items-center card border-2 border-gradient-left shadow-inner shadow-border-gradient-right/80"
+            className=" h-[6rem] w-full lg:w-[27rem] rounded-lg flex justify-between px-4 items-center card border-2 border-gradient-left shadow-inner shadow-border-gradient-right/80"
           >
             <div className="grid items-center w-full gap-8">
               <div className="flex flex-col w-full space-y-1.5 ">
@@ -291,7 +288,7 @@ const AddApp = () => {
                   placeholder={field.value}
                   value={field.value}
                   onChange={(e) => handleInputChange(field.id, e.target.value)}
-                  className="flex h-10 w-full rounded-lg outline-none bg-transparent border-sky-600 shadow-sm shadow-sky-700 focus-visible:ring-[3px] focus-visible:ring-sky-700 focus-visible:ring-offset-[2px]"
+                  className="px-2 flex h-10 w-full rounded-lg outline-none bg-transparent border-sky-600 shadow-sm shadow-sky-700 focus-visible:ring-[3px] focus-visible:ring-sky-700 focus-visible:ring-offset-[2px]"
                 />
               </div>
             </div>
@@ -302,7 +299,7 @@ const AddApp = () => {
         return (
           <div
             key={field.id}
-            className="h-[6rem] w-full lg:w-[26.5rem] rounded-lg flex justify-between px-4 items-center card border-2 border-gradient-left shadow-inner shadow-border-gradient-right/80"
+            className="h-[6rem] w-full lg:w-[27rem] rounded-lg flex justify-between px-4 items-center card border-2 border-gradient-left shadow-inner shadow-border-gradient-right/80"
           >
             <div className="flex items-center w-full gap-8">
               <div className="w-fit h-full pl-1">
@@ -330,7 +327,7 @@ const AddApp = () => {
                       reader.readAsDataURL(file);
                     }
                   }}
-                  className="flex file:text-text h-10 w-full rounded-lg border border-sky-600 shadow-sm shadow-sky-700 px-3 py-2 text-sm file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
+                  className="px-2 flex file:text-text h-10 w-full rounded-lg border border-sky-600 shadow-sm shadow-sky-700 py-2 text-sm file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
                 />
               </div>
             </div>
@@ -994,7 +991,9 @@ const AddApp = () => {
     if (!appId) {
       try {
         const updateResponse = await fetch(
-          `${import.meta.env.VITE_BASE_URL}/experience-app/${projectId}/${experienceId}/add-experience-app`,
+          `${
+            import.meta.env.VITE_BASE_URL
+          }/experience-app/${projectId}/${experienceId}/add-experience-app`,
           {
             method: "POST",
             headers: {
@@ -1017,7 +1016,9 @@ const AddApp = () => {
     } else {
       try {
         const updateResponse = await fetch(
-          `${import.meta.env.VITE_BASE_URL}/experience-app/${projectId}/${experienceId}/update-experience-app/${appId}`,
+          `${
+            import.meta.env.VITE_BASE_URL
+          }/experience-app/${projectId}/${experienceId}/update-experience-app/${appId}`,
           {
             method: "PUT",
             headers: {
@@ -1031,7 +1032,7 @@ const AddApp = () => {
         if (updateResponse.ok) {
           alert("App updated successfully");
           // Refresh the form data
-          navigate(`/apps/${projectId}`);
+          navigate(-1);
         } else {
           console.error("Failed to update data");
         }
@@ -1044,13 +1045,15 @@ const AddApp = () => {
   const handleDelete = async () => {
     try {
       const response = await fetch(
-        `${import.meta.env.VITE_BASE_URL}/experience-app/${projectId}/delete-experience-app/${appId}`,
+        `${
+          import.meta.env.VITE_BASE_URL
+        }/experience-app/${projectId}/delete-experience-app/${appId}`,
         { method: "DELETE", headers: { Authorization: `Bearer ${token}` } }
       );
       if (response.ok) {
         const res = response.json();
         alert("App deleted successfully");
-        navigate(`/apps/${projectId}`);
+        navigate(-1);
       }
     } catch (error) {
       console.error("Failed to update data");
@@ -1096,90 +1099,102 @@ const AddApp = () => {
   }, []);
 
   return (
-    <div className="flex justify-center items-center">
-      <form className=" w-4xl h-full p-2">
-        <div className="grid items-center w-full gap-8 border-2 p-5 rounded-lg border-gradient-left shadow-inner shadow-border-gradient-right/80">
-          <div className="flex flex-col w-full space-y-1.5 ">
-            <label className="block text-sm font-medium text-gray-700">
-              Experience Id
-            </label>
-            <input
-              type="text"
-              className="w-full border rounded-md p-2 focus:ring focus:ring-blue-300 bg-slate-300 text-gray-900"
-              name="name"
-              defaultValue={experience.experience_id}
-              disabled
-              required
-            />
-          </div>
-        </div>
-
-        <div className="grid grid-cols-2 gap-4 mt-2">
-          <div className="grid items-center w-full gap-8 border-2 p-5 rounded-lg border-gradient-left shadow-inner shadow-border-gradient-right/80">
+    <div className="w-full mx-auto p-4 overflow-auto text-left text-sm">
+      <div className="flex flex-row justify-between items-center">
+        <form className="flex flex-col w-4xl h-full p-2">
+          <div className="grid items-center gap-8 border-2 p-5 rounded-lg border-gradient-left shadow-inner shadow-border-gradient-right/80">
             <div className="flex flex-col w-full space-y-1.5 ">
               <label className="block text-sm font-medium text-gray-700">
-                Instance Count
+                Experience Id
               </label>
               <input
-                type="number"
-                min="1"
-                className="w-full border rounded-md p-2 focus:ring focus:ring-blue-300  bg-slate-300 text-gray-900"
-                placeholder="e.g. 4"
-                value={completeData.instance_count}
-                name="instance_count"
+                type="text"
+                className="w-full border rounded-md p-2 focus:ring focus:ring-blue-300 bg-slate-300 text-gray-900"
+                name="name"
+                defaultValue={experience.experience_id}
+                disabled
                 required
-                onChange={(e) => handleChange(e.target.name, e.target.value)}
               />
             </div>
           </div>
 
-          <div className="grid items-center w-full gap-8 border-2 p-5 rounded-lg border-gradient-left shadow-inner shadow-border-gradient-right/80">
-            <div className="flex flex-col w-full space-y-1.5 ">
-              <label className="block text-sm font-medium text-gray-700">
-                App Status
-              </label>
-              <select
-                name="status"
-                id="appStatus"
-                value={completeData.status}
-                className="w-full border rounded-md p-2 focus:ring focus:ring-blue-300  bg-slate-300 text-gray-900"
-                onChange={(e) => handleChange(e.target.name, e.target.value)}
-              >
-                <option value="disabled">Disabled</option>
-                <option value="deleted">Deleted</option>
-                <option value="enabled">Enabled</option>
-                <option value="live">Live</option>
-              </select>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-2">
+            <div className="grid items-center w-full gap-8 border-2 p-5 rounded-lg border-gradient-left shadow-inner shadow-border-gradient-right/80">
+              <div className="flex flex-col w-full space-y-1.5 ">
+                <label className="block text-sm font-medium text-gray-700">
+                  Instance Count
+                </label>
+                <input
+                  type="number"
+                  min="1"
+                  className="w-full border rounded-md p-2 focus:ring focus:ring-blue-300  bg-slate-300 text-gray-900"
+                  placeholder="e.g. 4"
+                  value={completeData.instance_count}
+                  name="instance_count"
+                  required
+                  onChange={(e) => handleChange(e.target.name, e.target.value)}
+                />
+              </div>
+            </div>
+
+            <div className="grid items-center w-full gap-8 border-2 p-5 rounded-lg border-gradient-left shadow-inner shadow-border-gradient-right/80">
+              <div className="flex flex-col w-full space-y-1.5 ">
+                <label className="block text-sm font-medium text-gray-700">
+                  App Status
+                </label>
+                <select
+                  name="status"
+                  id="appStatus"
+                  value={completeData.status}
+                  className="w-full border rounded-md p-2 focus:ring focus:ring-blue-300  bg-slate-300 text-gray-900"
+                  onChange={(e) => handleChange(e.target.name, e.target.value)}
+                >
+                  <option value="disabled">Disabled</option>
+                  <option value="deleted">Deleted</option>
+                  <option value="enabled">Enabled</option>
+                  <option value="live">Live</option>
+                </select>
+              </div>
             </div>
           </div>
-        </div>
 
-        <div className="flex fex-col flex-wrap gap-2 mt-2">
-          {formData && !appLoading && !experienceLoading ? (
-            formData?.fields.map((field) => renderInputCard(field))
-          ) : (
-            <div>loading...</div>
-          )}
-        </div>
-        <div className="flex flex-row justify-center items-center gap-2">
-          <button
-            type="button"
-            onClick={handleSave}
-            className="w-full bg-[#318CE7] text-white py-2 rounded-md hover:bg-blue-600 transition disabled:bg-gray-400 cursor-pointer"
-          >
-            {appId ? "Update app" : "Create App"}
-          </button>
-          {appId && (
+          <div className="flex fex-col w-full flex-wrap gap-4 mt-2">
+            {formData && !appLoading && !experienceLoading ? (
+              formData?.fields.map((field) => renderInputCard(field))
+            ) : (
+              <div>loading...</div>
+            )}
+          </div>
+          <div className="flex flex-row justify-center items-center gap-2">
             <button
               type="button"
-              onClick={handleDelete}
-              className="w-full bg-red-400 text-white py-2 rounded-md hover:bg-red-600 transition disabled:bg-gray-400 cursor-pointer"
+              onClick={handleSave}
+              className="w-full text-white bg-background-secondary 
+              hover:bg-chart-background hover:ring-2 hover:outline-none 
+              hover:ring-blue-300 font-medium rounded-lg px-5 py-2.5 text-center 
+              transition ease-in-out duration-150 cursor-pointer border-2 border-white 
+              disabled:bg-gray-700 disabled:text-gray-400 disabled:hover:ring-0 
+              disabled:border-gray-400 disabled:cursor-auto"
             >
-              Delete App
+              {appId ? "Update app" : "Create App"}
             </button>
-          )}
-        </div>
-      </form>
+            {appId && (
+              <button
+                type="button"
+                onClick={handleDelete}
+                className="w-full text-white bg-verify-error 
+              hover:bg-verify-error hover:ring-2 hover:outline-none 
+              hover:ring-blue-300 font-medium rounded-lg px-5 py-2.5 text-center 
+              transition ease-in-out duration-150 cursor-pointer border-2 border-white 
+              disabled:bg-gray-700 disabled:text-gray-400 disabled:hover:ring-0 
+              disabled:border-gray-400 disabled:cursor-auto"
+              >
+                Delete App
+              </button>
+            )}
+          </div>
+        </form>
+      </div>
     </div>
   );
 };

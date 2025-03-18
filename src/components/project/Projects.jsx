@@ -157,12 +157,12 @@ const Projects = ({ organization, showAlert }) => {
   }, []);
 
   return (
-    <>
+    <div className="p-4 overflow-auto">
       {loading ? (
         <Loader></Loader>
       ) : (
-        <div className="flex flex-row justify-start items-start gap-2 w-full h-full overflow-y-auto overflow-x-hidden p-4 overflow-auto">
-          <div className="flex flex-col justify-start items-start gap-2 w-full h-full overflow-y-auto overflow-x-hidden">
+        <div className="flex flex-row justify-start items-start gap-2 w-full h-full ">
+          <div className="flex flex-col justify-start items-start gap-2 w-full h-full ">
             <div className="w-full h-fit flex flex-col justify-start items-start gap-1">
               <p className="font-sora font-bold text-transparent bg-gradient-to-l from-gradient-left to-gradient-right bg-clip-text text-[2.5rem]">
                 Your Projects
@@ -178,7 +178,10 @@ const Projects = ({ organization, showAlert }) => {
                     key={project.id}
                     className={`cursor-pointer p-2 mb-2 w-[18rem] h-[15rem] rounded-lg  bg - background - primary / 80               
                    hover:bg-blue-950 shadow-2xl ring-2 ring-white/5 shadow-background-secondary transition ease-in-out duration-300`}
-                    onClick={() => navigate(`/dashboard/project/${project.id}`)}
+                    onClick={() => {
+                      navigate(`/dashboard/project/${project.id}`);
+                      localStorage.setItem("projId", project.id);
+                    }}
                   >
                     <div className="flex flex-col h-full w-full justify-between items-start px-3 pt-2 pb-5 text-left">
                       <div className="flex flex-col text-start">
@@ -311,7 +314,7 @@ const Projects = ({ organization, showAlert }) => {
                     onClick={handleSubmit}
                     className="inline-flex w-full justify-center rounded-md bg-transparent px-4 py-2 text-text-inactive shadow-sm ring-1 ring-primary-white ring-opacity-10 hover:bg-green-500/30 hover:text-white transition ease-in-out disabled:opacity-50"
                   >
-                    Create Organization
+                    Create Project
                   </button>
                 </div>
               </div>
@@ -319,7 +322,7 @@ const Projects = ({ organization, showAlert }) => {
           </Modal>
         </div>
       )}
-    </>
+    </div>
   );
 };
 export default Projects;
