@@ -1,7 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { BrowserRouter, Route, Routes } from "react-router";
-import AddApp from "./components/App/AddApp.jsx";
-import Home from "./components/Dashboard/home/Home.jsx";
 import Login from "./components/auth/Login.jsx";
 import "./App.css";
 import "@ionic/react/css/core.css";
@@ -13,12 +11,12 @@ import "@ionic/react/css/structure.css";
 import "@ionic/react/css/typography.css";
 // import useNode from "./hooks/useNode";
 /* Optional CSS utils that can be commented out */
-import "@ionic/react/css/padding.css";
-import "@ionic/react/css/float-elements.css";
-import "@ionic/react/css/text-alignment.css";
-import "@ionic/react/css/text-transformation.css";
-import "@ionic/react/css/flex-utils.css";
-import "@ionic/react/css/display.css";
+// import "@ionic/react/css/padding.css";
+// import "@ionic/react/css/float-elements.css";
+// import "@ionic/react/css/text-alignment.css";
+// import "@ionic/react/css/text-transformation.css";
+// import "@ionic/react/css/flex-utils.css";
+// import "@ionic/react/css/display.css";
 import Signup from "./components/auth/Signup.jsx";
 import CreateOrganization from "./components/organization/CreateOrganization.jsx";
 import OrganizationPage from "./components/organization/OrganizationPage.jsx";
@@ -144,7 +142,7 @@ Made with ❤ by HSM - A Digital Jalebi Solution`,
                 </ProtectedRoute>
               }
             /> */}
-            <Route
+            {/* <Route
               path="/createProject"
               element={
                 <ProtectedRoute>
@@ -159,7 +157,7 @@ Made with ❤ by HSM - A Digital Jalebi Solution`,
                   <CreateProject showAlert={showAlert} />
                 </ProtectedRoute>
               }
-            />
+            /> */}
             <Route
               path="/addOrganization"
               element={

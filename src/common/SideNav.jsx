@@ -111,7 +111,7 @@ const SideNav = () => {
               className={({ isActive }) =>
                 isActive
                   ? "bg-accent! text-text! w-[4.5rem]! lg:w-[90%]! h-[4rem]! lg:h-[2.5rem]! rounded-2xl! lg:rounded-full! text-left! lg:px-3 flex lg:justify-start justify-center items-center transition ease-in-out duration-300 gap-2"
-                  : "bg-transparent! text-text-inactive! hover:bg-text/20! w-[4.5rem]!  lg:w-[90%]! h-[4rem]! lg:h-[2.5rem]! rounded-2xl! lg:rounded-full! text-left lg:px-3 flex lg:justify-start justify-center items-center transition ease-in-out duration-300 hover:bg-background hover:text-text gap-2"
+                  : "bg-transparent! text-text-inactive! hover:bg-text/20! w-[4.5rem]!  lg:w-[90%]! h-[4rem]! lg:h-[2.5rem]! rounded-2xl! lg:rounded-full! text-left lg:px-3 flex lg:justify-start justify-center items-center transition ease-in-out duration-300  hover:text-text gap-2"
               }
               s
               title="Attendee"
@@ -164,7 +164,7 @@ const SideNav = () => {
               className={({ isActive }) =>
                 isActive
                   ? "bg-accent! text-text! w-[4.5rem]! lg:w-[90%]! h-[4rem]! lg:h-[2.5rem]! rounded-2xl! lg:rounded-full! text-left! lg:px-3 flex lg:justify-start justify-center items-center transition ease-in-out duration-300 gap-2"
-                  : "bg-transparent! text-text-inactive! hover:bg-text/20! w-[4.5rem]!  lg:w-[90%]! h-[4rem]! lg:h-[2.5rem]! rounded-2xl! lg:rounded-full! text-left lg:px-3 flex lg:justify-start justify-center items-center transition ease-in-out duration-300 hover:bg-background hover:text-text gap-2"
+                  : "bg-transparent! text-text-inactive! hover:bg-text/20! w-[4.5rem]!  lg:w-[90%]! h-[4rem]! lg:h-[2.5rem]! rounded-2xl! lg:rounded-full! text-left lg:px-3 flex lg:justify-start justify-center items-center transition ease-in-out duration-300 hover:text-text gap-2"
               }
               title="Organization settings"
             >
@@ -189,7 +189,7 @@ const SideNav = () => {
               className={({ isActive }) =>
                 isActive
                   ? "bg-accent! text-text! w-[4.5rem]! lg:w-[90%]! h-[4rem]! lg:h-[2.5rem]! rounded-2xl! lg:rounded-full! text-left! lg:px-3 flex lg:justify-start justify-center items-center transition ease-in-out duration-300 gap-2"
-                  : "bg-transparent! text-text-inactive! hover:bg-text/20! w-[4.5rem]!  lg:w-[90%]! h-[4rem]! lg:h-[2.5rem]! rounded-2xl! lg:rounded-full! text-left lg:px-3 flex lg:justify-start justify-center items-center transition ease-in-out duration-300 hover:bg-background hover:text-text gap-2"
+                  : "bg-transparent! text-text-inactive! hover:bg-text/20! w-[4.5rem]!  lg:w-[90%]! h-[4rem]! lg:h-[2.5rem]! rounded-2xl! lg:rounded-full! text-left lg:px-3 flex lg:justify-start justify-center items-center transition ease-in-out duration-300 hover:text-text gap-2"
               }
               title="Organization settings"
             >
@@ -233,7 +233,7 @@ const SideNav = () => {
               className={({ isActive }) =>
                 isActive
                   ? "bg-accent! text-text! w-[4.5rem]! lg:w-[90%]! h-[4rem]! lg:h-[2.5rem]! rounded-2xl! lg:rounded-full! text-left! lg:px-3 flex lg:justify-start justify-center items-center transition ease-in-out duration-300 gap-2"
-                  : "bg-transparent! text-text-inactive! hover:bg-text/20! w-[4.5rem]!  lg:w-[90%]! h-[4rem]! lg:h-[2.5rem]! rounded-2xl! lg:rounded-full! text-left lg:px-3 flex lg:justify-start justify-center items-center transition ease-in-out duration-300 hover:bg-background hover:text-text gap-2"
+                  : "bg-transparent! text-text-inactive! hover:bg-text/20! w-[4.5rem]!  lg:w-[90%]! h-[4rem]! lg:h-[2.5rem]! rounded-2xl! lg:rounded-full! text-left lg:px-3 flex lg:justify-start justify-center items-center transition ease-in-out duration-300 hover:text-text gap-2"
               }
               title="Project settings"
             >
@@ -278,7 +278,7 @@ const SideNav = () => {
               className={({ isActive }) =>
                 isActive
                   ? "bg-accent! text-text! w-[4.5rem]! lg:w-[90%]! h-[4rem]! lg:h-[2.5rem]! rounded-2xl! lg:rounded-full! text-left! lg:px-3 flex lg:justify-start justify-center items-center transition ease-in-out duration-300 gap-2"
-                  : "bg-transparent! text-text-inactive! hover:bg-text/20! w-[4.5rem]!  lg:w-[90%]! h-[4rem]! lg:h-[2.5rem]! rounded-2xl! lg:rounded-full! text-left lg:px-3 flex lg:justify-start justify-center items-center transition ease-in-out duration-300 hover:bg-background hover:text-text gap-2"
+                  : "bg-transparent! text-text-inactive! hover:bg-text/20! w-[4.5rem]!  lg:w-[90%]! h-[4rem]! lg:h-[2.5rem]! rounded-2xl! lg:rounded-full! text-left lg:px-3 flex lg:justify-start justify-center items-center transition ease-in-out duration-300 hover:text-text gap-2"
               }
               s
               title="project"
@@ -360,7 +360,7 @@ const SideNav = () => {
               className={({ isActive }) =>
                 isActive
                   ? "bg-accent! text-text! w-[4.5rem]! lg:w-[90%]! h-[4rem]! lg:h-[2.5rem]! rounded-2xl! lg:rounded-full! text-left! lg:px-3 flex lg:justify-start justify-center items-center transition ease-in-out duration-300 gap-2"
-                  : "bg-transparent! text-text-inactive! hover:bg-text/20! w-[4.5rem]!  lg:w-[90%]! h-[4rem]! lg:h-[2.5rem]! rounded-2xl! lg:rounded-full! text-left lg:px-3 flex lg:justify-start justify-center items-center transition ease-in-out duration-300 hover:bg-background hover:text-text gap-2"
+                  : "bg-transparent! text-text-inactive! hover:bg-text/20! w-[4.5rem]!  lg:w-[90%]! h-[4rem]! lg:h-[2.5rem]! rounded-2xl! lg:rounded-full! text-left lg:px-3 flex lg:justify-start justify-center items-center transition ease-in-out duration-300 hover:text-text gap-2"
               }
               title="Manage members"
             >
@@ -394,7 +394,7 @@ const SideNav = () => {
               className={({ isActive }) =>
                 isActive
                   ? "bg-accent! text-text! w-[4.5rem]! lg:w-[90%]! h-[4rem]! lg:h-[2.5rem]! rounded-2xl! lg:rounded-full! text-left! lg:px-3 flex lg:justify-start justify-center items-center transition ease-in-out duration-300 gap-2"
-                  : "bg-transparent! text-text-inactive! hover:bg-text/20! w-[4.5rem]!  lg:w-[90%]! h-[4rem]! lg:h-[2.5rem]! rounded-2xl! lg:rounded-full! text-left lg:px-3 flex lg:justify-start justify-center items-center transition ease-in-out duration-300 hover:bg-background hover:text-text gap-2"
+                  : "bg-transparent! text-text-inactive! hover:bg-text/20! w-[4.5rem]!  lg:w-[90%]! h-[4rem]! lg:h-[2.5rem]! rounded-2xl! lg:rounded-full! text-left lg:px-3 flex lg:justify-start justify-center items-center transition ease-in-out duration-300 hover:text-text gap-2"
               }
               title="Organization settings"
             >
@@ -421,71 +421,6 @@ const SideNav = () => {
               </svg>
               <p className="hidden lg:block">Settings</p>
             </NavLink>
-            {/* <NavLink
-            to="/dashboard/analytics"
-            className={({ isActive }) =>
-              isActive
-                ? "bg-accent text-text w-[4rem] lg:w-[85%] h-[4rem] lg:h-[2.5rem] rounded-2xl lg:rounded-full text-left lg:px-3 flex lg:justify-start justify-center items-center transition ease-in-out duration-300 gap-2"
-                : "bg-transparent text-text-inactive hover:bg-text/20 w-[4rem]  lg:w-[85%] h-[4rem] lg:h-[2.5rem] rounded-2xl lg:rounded-full text-left lg:px-3 flex lg:justify-start justify-center items-center transition ease-in-out duration-300 hover:bg-background hover:text-text gap-2"
-            }
-            title="Analytics"
-          >
-            <svg
-              fill="currentColor"
-              className="w-[1.2rem]"
-              viewBox="0 0 1920 1920"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <g id="SVGRepo_bgCarrier" strokeWidth="0"></g>
-              <g
-                id="SVGRepo_tracerCarrier"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              ></g>
-              <g id="SVGRepo_iconCarrier">
-                {" "}
-                <path d="M746.667 106.667H1173.33V1493.33H746.667V106.667ZM533.333 533.333H106.667V1493.33H533.333V533.333ZM1920 1706.67H0V1824H1920V1706.67ZM1813.33 746.667H1386.67V1493.33H1813.33V746.667Z"></path>{" "}
-              </g>
-            </svg>
-            <p className="hidden lg:block">Analytics</p>
-          </NavLink>
-          <NavLink
-            to="/dashboard/experiences"
-            className={({ isActive }) =>
-              isActive
-                ? "bg-accent text-text w-[4rem] lg:w-[85%] h-[4rem] lg:h-[2.5rem] rounded-2xl lg:rounded-full text-left lg:px-3 flex lg:justify-start justify-center items-center transition ease-in-out duration-300 gap-2"
-                : "bg-transparent text-text-inactive hover:bg-text/20 w-[4rem]  lg:w-[85%] h-[4rem] lg:h-[2.5rem] rounded-2xl lg:rounded-full text-left lg:px-3 flex lg:justify-start justify-center items-center transition ease-in-out duration-300 hover:bg-background hover:text-text gap-2"
-            }
-            title="Analytics"
-          >
-            <svg
-              fill="currentColor"
-              className="w-[1.2rem]"
-              version="1.1"
-              id="Capa_1"
-              viewBox="0 0 485.238 485.238"
-            >
-              <g id="SVGRepo_bgCarrier" strokeWidth="0"></g>
-              <g
-                id="SVGRepo_tracerCarrier"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              ></g>
-              <g id="SVGRepo_iconCarrier">
-                {" "}
-                <g>
-                  {" "}
-                  <g>
-                    {" "}
-                    <path d="M229.958,23.812l-71.72,18.363l-11.521-17.281l-3.648-0.653L1.06,127.498L0,129.575v329.284l2.57,2.568h95.941 l2.569-2.568V130.885L232.03,28.398L229.958,23.812z"></path>{" "}
-                    <path d="M352.729,23.812l-71.72,18.363l-11.521-17.281l-3.649-0.653L123.832,137.498l-1.059,2.077v319.284l2.57,2.568h95.94 l2.569-2.568V130.885l130.95-102.486L352.729,23.812z"></path>{" "}
-                    <path d="M482.106,24.654l-77.974,17.521l-11.521-17.281l-3.648-0.653l-142.01,113.257l-1.06,2.077v319.284l2.57,2.568h95.94 l1.237-1.238l0.32,0.42l137.924-105.226l1.012-2.039l0.34-326.18L482.106,24.654z M466.14,55.739l0.016,287.09l-119.179,92.01 V145.261L466.14,55.739z"></path>{" "}
-                  </g>{" "}
-                </g>{" "}
-              </g>
-            </svg>
-            <p className="hidden lg:block">Experiences</p>
-          </NavLink> */}
           </div>
         )}
       </div>

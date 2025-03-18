@@ -1,4 +1,3 @@
-// src/CreateProject.js
 import dayjs from "dayjs";
 import React, { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router";
